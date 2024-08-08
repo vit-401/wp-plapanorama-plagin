@@ -1,14 +1,15 @@
 import React, {useEffect, useRef, useState} from 'react';
 import * as THREE from 'three';
 import {DataImage, ImagePanorama, Infospot, Viewer} from 'panolens';
+import {Select, Spin, Tooltip} from "antd";
 import styles from './styles.module.scss';
 import bedroom2 from '../media/bedroom2.png';
 import coridor_stairs from '../media/coridor_stairs.png';
 import bedroom1 from '../media/bedroom1.png';
 import plan from '../media/plan.png';
 import plan2 from '../media/plan.jpg';
-import {Select, Tooltip} from "antd";
-
+import useAnimatedProgress from "../hooks/useAnimatedProgress";
+import {LoadingOutlined} from '@ant-design/icons';
 
 // Extend the Viewer prototype to include the getPosition method
 Viewer.prototype.getPosition = function () {
@@ -45,9 +46,9 @@ class MyInfospot extends Infospot {
 }
 
 const rooms = {
-  0: "ROOM 1",
-  1: "STAIRS",
-  2: "ROOM 2"
+  0: "BEDROOM 1",
+  1: "HALLWAY",
+  2: "BEDROOM 2"
 }
 
 const PanoramaViewer = () => {
@@ -57,19 +58,75 @@ const PanoramaViewer = () => {
   const infospotRefs = useRef([]);
   const [activeRoom, setActiveRoom] = useState(0)
   const [activeFloor, setActiveFloor] = useState('second-floor')
-  console.log(activeFloor)
+  const [percent, resetInitValue] = useAnimatedProgress(40, 100); // Example usage
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (percent >= 100) {
+      resetInitValue(70)
+      setLoading(false);
+    }
+  }, [percent]);
+
+
+  const handleChangeSelect = (value) => {
+    // setActiveRoom(null)
+    setActiveFloor(value)
+  };
+
+  const switchPanorama = (index) => {
+    if (viewerRef.current && panoramasRef.current[index]) {
+      setActiveRoom(index)
+      viewerRef.current.setPanorama(panoramasRef.current[index]);
+    }
+  };
+
+  const handleDotClick = (pointTo) => {
+    switchPanorama(pointTo)
+  };
+
+  const floors = [
+    {
+      value: 'second-floor',
+      title: 'Second floor',
+      img: plan,
+      dotPosition: [
+        {top: 43, left: 30, pointTo: 0, hoverText: 'bedroom 1'},
+        {top: 82, left: 64, pointTo: 1, hoverText: 'hallway'},
+        {top: 43, left: 90, pointTo: 2, hoverText: 'bedroom 2'}
+      ]
+    },
+    {
+      value: 'first-floor',
+      title: 'First floor',
+      img: plan2,
+      dotPosition: []
+    },
+  ]
+
+  const onImageClick = (event) => {
+    const rect = event.target.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    console.log(`Image clicked at: top: ${y}, left: ${x}`);
+  };
+
+
   useEffect(() => {
     console.log("PanoramaViewer mounted");
 
     if (viewerRef.current) return;
 
     const viewer = new Viewer({
+
       container: containerRef.current,
       cameraFov: 60,
       viewIndicator: false,
       autoHideInfospot: false,
-      indicatorSize: 30,
-      reverseDragging: true
+      indicatorSize: 1000, //30
+      reverseDragging: true,
+      controlButtons: ['fullscreen'],
+      dwellTime: 150,
     });
 
     const panoramas = [
@@ -80,18 +137,16 @@ const PanoramaViewer = () => {
     panoramasRef.current = panoramas;
 
     const infospotsData = [
-      {position: [-3944.75, -1092.23, -2867.28], pointTo: 1, panoramaIndex: 0, hoverText: 'go to coridor_stairs'},
-      {position: [-1671.56, -1820.95, -4336.10], pointTo: 0, panoramaIndex: 1, hoverText: 'go to bedroom 1'},
-      {position: [-4598.75, -1927.29, -271.99], pointTo: 2, panoramaIndex: 1, hoverText: 'go to bedroom 2'},
-      {position: [4779.88, -1274.36, -664.69], pointTo: 1, panoramaIndex: 2, hoverText: 'go to coridor_stairs'},
-
+      {position: [-3944.75, -1092.23, -2867.28], pointTo: 1, panoramaIndex: 0, hoverText: 'HALLWAY'},
+      {position: [-1671.56, -1820.95, -4336.10], pointTo: 0, panoramaIndex: 1, hoverText: 'BEDROOM 1'},
+      {position: [-4598.75, -1927.29, -271.99], pointTo: 2, panoramaIndex: 1, hoverText: 'BEDROOM 2'},
+      {position: [4779.88, -1274.36, -664.69], pointTo: 1, panoramaIndex: 2, hoverText: 'HALLWAY'},
     ];
 
     infospotsData.forEach((data, index) => {
       const infospot = new MyInfospot(350, DataImage.Arrow);
       infospot.position.set(...data.position);
       infospot.addHoverText(data.hoverText);
-      // infospot.show(550)
       infospot.addEventListener("click", () => {
         switchPanorama(data.pointTo);
       });
@@ -99,9 +154,17 @@ const PanoramaViewer = () => {
       panoramas[data.panoramaIndex].add(infospot);
     });
 
-    panoramas.forEach((panorama) => {
+    panoramas.forEach((panorama, index) => {
+      console.log(panorama)
       panorama.addEventListener("enter-fade-start", function () {
-        viewer.tweenControlCenter(new THREE.Vector3(0, 0, 0), 0);
+        // to handle the how people will be see on initial vew panorapa - need just for panoramas add x, y , z data (viewer.tweenControlCenter)
+        viewer.tweenControlCenter(new THREE.Vector3(-3762.26, -1741.48, -2784.88), 0);
+      });
+      panorama.addEventListener('progress', () => {
+        setLoading(true);  // show the loaderd
+      });
+      panorama.addEventListener('load', () => {
+        setLoading(false); // hide the loader
       });
       viewer.add(panorama);
     });
@@ -112,7 +175,6 @@ const PanoramaViewer = () => {
     viewer.getControl().momentumScalingFactor *= 0;
     viewer.getCamera().updateProjectionMatrix();
 
-    // Add click event listener to get position
     containerRef.current.addEventListener("click", (e) => {
       const position = viewer.getPosition();
       if (position) {
@@ -123,55 +185,24 @@ const PanoramaViewer = () => {
     viewerRef.current = viewer;
 
   }, []);
-  const handleChangeSelect = (value) => {
-    setActiveRoom(null)
-    setActiveFloor(value)
-  };
-  const switchPanorama = (index) => {
-    if (viewerRef.current && panoramasRef.current[index]) {
-      setActiveRoom(index)
-      viewerRef.current.setPanorama(panoramasRef.current[index]);
-    }
-  };
-  const handleDotClick = (pointTo) => {
-    // alert('Dot clicked!');
-    switchPanorama(pointTo)
 
-  };
-  const floors = [
-    {
-      value: 'second-floor',
-      title: 'Second floor',
-      img: plan,
-      dotPosition: [
-        {top: 43, left: 30, pointTo: 0, hoverText: 'go to room - 1'},
-        {top: 82, left: 64, pointTo: 1, hoverText: 'go to stairs'},
-        {top: 43, left: 90, pointTo: 2, hoverText: 'go to room - 2'}
-      ]
-    },
-    {
-      value: 'first-floor',
-      title: 'First floor',
-      img: plan2,
-      dotPosition: [
-        // {top: 216, left: 46, pointTo: 0},
-        // {top: 104, left: 103, pointTo: 1},
-        // {top: 45, left: 38, pointTo: 2}
-      ]
-    },
-  ]
-
-//@params event - to check
-  const onImageClick = (event) => {
-    const rect = event.target.getBoundingClientRect();
-    console.dir(event.target)
-    const x = event.clientX - rect.left; // X coordinate within the image
-    const y = event.clientY - rect.top;  // Y coordinate within the image
-
-    console.log(`Image clicked at: top: ${y}, left: ${x}`);
-  };
   return (
     <div className={styles.panoramaWrap}>
+      {/*<div className={styles.spinnerContainer}>*/}
+      {/*  <Progress percent={Math.floor(percent)} status="active"/>*/}
+      {/*</div>*/}
+      {/*{loading && (*/}
+      {/*  <div className={styles.spinnerContainer}>*/}
+
+      {/*    <Progress percent={Math.floor(percent)} status="active" showInfo={false}/>*/}
+      {/*  </div>*/}
+      {/*)}*/}
+
+      {/*visit bedroom 1*/}
+      {/*visit bedroom 2*/}
+      {/*hallway*/}
+
+      {loading && (<Spin indicator={<LoadingOutlined style={{fontSize: 300}} spin/>} className={styles.spin}/>)}
       <div className={styles.imagesWrap}>
         <div className={styles.planContainer}>
           <div className={styles.imgSelectWrap}>
@@ -180,10 +211,9 @@ const PanoramaViewer = () => {
                 return floor.value === activeFloor ? <React.Fragment key={floor.value}>
                   <img onClick={onImageClick} src={floor.img} alt="plan" className={styles.planImage}/>
                   {
-                    floor.dotPosition.map(item => {
-                      return <Tooltip placement="topLeft" title={item.hoverText}>
+                    floor.dotPosition.map(item => (
+                      <Tooltip key={`${item.top}${item.left}`} placement="topLeft" title={item.hoverText}>
                         <div
-                          key={`${item.top}${item.left}`}
                           style={{
                             top: `${item.top}px`,
                             left: `${item.left}px`,
@@ -192,7 +222,7 @@ const PanoramaViewer = () => {
                           className={styles.dot} onClick={() => handleDotClick(item.pointTo)}>
                         </div>
                       </Tooltip>
-                    })
+                    ))
                   }
                 </React.Fragment> : null
               })
@@ -213,10 +243,11 @@ const PanoramaViewer = () => {
         </div>
 
         <div className={styles.info} style={{top: '10px', right: '50%'}}>A-280 PLAN</div>
-        <div className={styles.info} style={{top: '10px', right: '10%'}}>{ activeRoom !== null ? rooms[activeRoom] : '-'}</div>
-
+        <div className={styles.info}
+             style={{top: '10px', right: '10%'}}>{rooms[activeRoom]}</div>
         <div id="panolens" className={styles.image} ref={containerRef}></div>
       </div>
+
 
     </div>
   );

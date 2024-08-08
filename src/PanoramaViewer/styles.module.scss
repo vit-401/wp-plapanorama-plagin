@@ -57,10 +57,9 @@
   top: 10px;
   left: 10px;
   position: absolute;
-  //opacity: 0.50;
   &:before{
-    width: 105px;
-    height: 250px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
     top: -10px;
     left: -10px;
     content: '';
@@ -90,13 +89,30 @@
 .info {
   font-size: medium;
   color: white;
-  padding-top: 10px;
+  padding: 10px;
   text-align: center;
   margin: 0 auto;
   position: absolute;
   width: 200px;
-  height: 30px;
   background-color: #000;
   opacity: 0.50;
 
+}
+
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //height: 100vh; /* Adjust based on your layout */
+}
+
+.spin{
+  color: #4e5b70;
+  position: absolute;
+  z-index: 10;
+  margin: 0 auto;
+  text-align: center;
+  right: 0;
+  left: 0;
+  top:25%;
 }
