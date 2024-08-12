@@ -33,7 +33,18 @@ const Popup = () => {
       <Button type="primary" onClick={showModal}>
         Open Modal
       </Button>
-      <Modal onCancel={onCancel} footer={null} title="Example" className={styles.modal} width={1200} open={isModalOpen}>
+      {/*<Modal onCancel={onCancel} footer={null} title="Example" className={styles.modal} width={1200} open={isModalOpen}>*/}
+      {/*  <PanoramaViewer/>*/}
+      {/*</Modal>*/}
+      <Modal
+        onCancel={onCancel}
+        footer={null}
+        title="Example"
+        className={styles.modal}
+        width={window.innerWidth < 768 ? '95%' : '80%'}
+        style={{ maxWidth: '1200px' }}
+        open={isModalOpen}
+      >
         <PanoramaViewer/>
       </Modal>
     </>

@@ -1,8 +1,16 @@
 .image {
-  width: 1200px;
-  height: 600px;
+
+  width: 100%;
   margin: 0 auto;
   cursor: none !important;
+  //width: 100% !important;
+  //max-width: 1200px !important;
+  height: 500px; // Default height, adjust as needed
+  max-height: 70vh; // Ensures the height doesn't exceed 70% of the viewport height
+
+  canvas {
+    //width: 100% !important;
+  }
 }
 
 .panoramaWrap {
@@ -44,10 +52,13 @@
 .planContainer {
   position: relative;
   display: inline-block; /* or use block if you want it to take full width */
+  @media (max-width: 613px) {
+    display: none;
+  }
 }
 
 .planImage {
-  width: 125px;
+  max-width: 125px;
   opacity: 0.80;
   height: auto; /* Adjust as needed */
   //position: absolute;
@@ -57,7 +68,8 @@
   top: 10px;
   left: 10px;
   position: absolute;
-  &:before{
+
+  &:before {
     width: calc(100% + 20px);
     height: calc(100% + 20px);
     top: -10px;
@@ -96,6 +108,26 @@
   width: 200px;
   background-color: #000;
   opacity: 0.50;
+  @media (max-width: 613px) {
+    display: none;
+  }
+}
+
+.infoPlan {
+  top: 10px;
+  right: 50%;
+  @media (max-width: 1090px) {
+    right: 5%;
+  }
+}
+
+.infoRoom {
+  top: 10px;
+  right: 10%;
+  @media (max-width: 1090px) {
+    top: 70px;
+    right: 5%;
+  }
 
 }
 
@@ -106,13 +138,14 @@
   //height: 100vh; /* Adjust based on your layout */
 }
 
-.spin{
-  color: #4e5b70;
+.spin {
+  color: #fff;
+  opacity: .8;
   position: absolute;
   z-index: 10;
   margin: 0 auto;
   text-align: center;
   right: 0;
   left: 0;
-  top:25%;
+  top: calc(50% - 75px);
 }

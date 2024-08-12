@@ -1,2 +1,18 @@
-.modal{
+.modal {
+  // Default width for larger screens
+  width: 80%;
+  max-width: 1200px;
+
+  @media (max-width: 1200px) {
+    width: 90%;
+  }
+
+  @media (max-width: 768px) {
+    width: 95%;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    margin: 0 10px; // Ensure it doesn't touch the edges of the screen
+  }
 }

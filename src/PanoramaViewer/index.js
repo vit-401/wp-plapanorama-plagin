@@ -4,7 +4,7 @@ import {DataImage, ImagePanorama, Infospot, Viewer} from 'panolens';
 import {Select, Spin, Tooltip} from "antd";
 import styles from './styles.module.scss';
 import bedroom2 from '../media/bedroom2.png';
-import coridor_stairs from '../media/coridor_stairs.png';
+import coridor_stairs from '../media/hallway-view3.png';
 import bedroom1 from '../media/bedroom1.png';
 import plan from '../media/plan.png';
 import plan2 from '../media/plan.jpg';

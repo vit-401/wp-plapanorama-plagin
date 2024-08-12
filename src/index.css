@@ -16,14 +16,13 @@ code {
 /*}*/
 
 .ant-modal-content {
-  position: fixed !important;
-}
+  position: absolute !important;
+  width: 100%;
 
-/* Add this CSS to your stylesheet */
-#panolens {
-  /*cursor: none; !* Hide the default cursor *!*/
-  /*position: relative;*/
 }
+.modal-content {
+}
+/* Add this CSS to your stylesheet */
 
 #panolens .custom-cursor {
   position: absolute;

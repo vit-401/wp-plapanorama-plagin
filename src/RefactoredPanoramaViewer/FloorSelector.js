@@ -14,7 +14,8 @@ const FloorSelector = ({ floors, activeFloor, activeRoom, onImageClick, handleDo
                 style={{
                   top: `${item.top}px`,
                   left: `${item.left}px`,
-                  backgroundColor: activeRoom === item.pointTo ? 'yellow' : 'red'
+                  border: '1px solid #fff',
+                  backgroundColor: activeRoom === item.pointTo ? '#2e4643' : 'transparent'
                 }}
                 className={styles.dot} onClick={() => handleDotClick(item.pointTo)}
               />
