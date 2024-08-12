@@ -18,3 +18,33 @@ code {
 .ant-modal-content {
   position: fixed !important;
 }
+
+/* Add this CSS to your stylesheet */
+#panolens {
+  /*cursor: none; !* Hide the default cursor *!*/
+  /*position: relative;*/
+}
+
+#panolens .custom-cursor {
+  position: absolute;
+  width: 40px; /* Adjust the diameter of the circle */
+  height: 40px;
+  border: 2px solid white; /* Set the border color and width */
+  background-color: rgba(255, 255, 255, 0.2); /* Light white to simulate shadow */
+  border-radius: 50%; /* Make it a circle */
+  pointer-events: none; /* Ensure it doesn't interfere with interactions */
+  transform: translate(-50%, -50%);
+  visibility: hidden; /* Initially hidden */
+}
+
+/*#panolens .custom-cursor {*/
+/*  position: absolute;*/
+/*  width: 60px; !* Diameter of the circle *!*/
+/*  height: 60px;*/
+/*  border: 2px solid white; !* Border color and thickness *!*/
+/*  border-radius: 50%;*/
+/*  background-color: rgba(255, 255, 255, 0.2); !* Light white to simulate shadow *!*/
+/*  transform: translate(-50%, -50%) rotateX(60deg); !* Tilt the circle to lie flat *!*/
+/*  pointer-events: none; !* Ignore pointer events *!*/
+/*  visibility: hidden; !* Initially hidden *!*/
+/*}*/

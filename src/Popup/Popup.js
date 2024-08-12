@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Modal} from 'antd';
-import PanoramaViewer from "../PanoramaViewer";
+import PanoramaViewer from "../RefactoredPanoramaViewer";
 import styles from './styles.module.scss';
 
 const Popup = () => {

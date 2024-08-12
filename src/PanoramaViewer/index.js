@@ -9,7 +9,8 @@ import bedroom1 from '../media/bedroom1.png';
 import plan from '../media/plan.png';
 import plan2 from '../media/plan.jpg';
 import useAnimatedProgress from "../hooks/useAnimatedProgress";
-import {LoadingOutlined} from '@ant-design/icons';
+import {HarmonyOSOutlined, LoadingOutlined, RightCircleOutlined} from '@ant-design/icons';
+import createCircleWithBorder from "../utils/createCircleWithBorder";
 
 // Extend the Viewer prototype to include the getPosition method
 Viewer.prototype.getPosition = function () {
@@ -56,6 +57,8 @@ const PanoramaViewer = () => {
   const viewerRef = useRef(null);
   const panoramasRef = useRef([]);
   const infospotRefs = useRef([]);
+  const cursorRef = useRef();
+
   const [activeRoom, setActiveRoom] = useState(0)
   const [activeFloor, setActiveFloor] = useState('second-floor')
   const [percent, resetInitValue] = useAnimatedProgress(40, 100); // Example usage
@@ -143,8 +146,11 @@ const PanoramaViewer = () => {
       {position: [4779.88, -1274.36, -664.69], pointTo: 1, panoramaIndex: 2, hoverText: 'HALLWAY'},
     ];
 
+    console.log(createCircleWithBorder())
+    const circleOutlined = createCircleWithBorder()
+
     infospotsData.forEach((data, index) => {
-      const infospot = new MyInfospot(350, DataImage.Arrow);
+      const infospot = new MyInfospot(350, circleOutlined);
       infospot.position.set(...data.position);
       infospot.addHoverText(data.hoverText);
       infospot.addEventListener("click", () => {
@@ -186,21 +192,50 @@ const PanoramaViewer = () => {
 
   }, []);
 
+
+
+  useEffect(() => {
+    const container = containerRef.current;
+
+    // Create a div to act as the custom cursor
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    container.appendChild(cursor);
+    cursorRef.current = cursor;
+
+    const handleMouseMove = (event) => {
+      const { clientX, clientY } = event;
+      const rect = container.getBoundingClientRect();
+
+      // Calculate the position relative to the container
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
+
+      // Position the custom cursor
+      cursor.style.left = `${x}px`;
+      cursor.style.top = `${y}px`;
+      cursor.style.visibility = 'visible';
+    };
+
+    container.addEventListener('mousemove', handleMouseMove);
+
+    const handleMouseLeave = () => {
+      cursor.style.visibility = 'hidden'; // Hide the cursor when leaving the container
+    };
+
+    container.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      container.removeChild(cursor);
+      container.removeEventListener('mousemove', handleMouseMove);
+      container.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
   return (
     <div className={styles.panoramaWrap}>
-      {/*<div className={styles.spinnerContainer}>*/}
-      {/*  <Progress percent={Math.floor(percent)} status="active"/>*/}
-      {/*</div>*/}
-      {/*{loading && (*/}
-      {/*  <div className={styles.spinnerContainer}>*/}
 
-      {/*    <Progress percent={Math.floor(percent)} status="active" showInfo={false}/>*/}
-      {/*  </div>*/}
-      {/*)}*/}
 
-      {/*visit bedroom 1*/}
-      {/*visit bedroom 2*/}
-      {/*hallway*/}
 
       {loading && (<Spin indicator={<LoadingOutlined style={{fontSize: 300}} spin/>} className={styles.spin}/>)}
       <div className={styles.imagesWrap}>
