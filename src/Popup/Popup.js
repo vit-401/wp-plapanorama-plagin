@@ -42,7 +42,7 @@ const Popup = () => {
         title="Example"
         className={styles.modal}
         width={window.innerWidth < 768 ? '95%' : '80%'}
-        style={{ maxWidth: '1200px' }}
+        style={{ maxWidth: '1500px' }}
         open={isModalOpen}
       >
         <PanoramaViewer/>

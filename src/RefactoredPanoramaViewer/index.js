@@ -5,6 +5,7 @@ import {Select, Spin} from "antd";
 import styles from './styles.module.scss';
 import plan from '../media/plan.png';
 import plan2 from '../media/plan.jpg';
+import galleryIcon from '../media/gallery-icon.png';
 import useAnimatedProgress from "../hooks/useAnimatedProgress";
 import {LoadingOutlined} from '@ant-design/icons';
 import FloorSelector from './FloorSelector';
@@ -122,6 +123,7 @@ const PanoramaViewer = () => {
               ]}
             />
           </div>
+          <img className={styles.galleryIcon} src={galleryIcon} alt=""/>
         </div>
         <div className={classNames(styles.info, styles.infoPlan)}>A-280 PLAN</div>
         <div className={classNames(styles.info, styles.infoRoom)}>{rooms[activeRoom]}</div>

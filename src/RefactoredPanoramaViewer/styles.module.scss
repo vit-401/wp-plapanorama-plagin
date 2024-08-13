@@ -63,7 +63,12 @@
   height: auto; /* Adjust as needed */
   //position: absolute;
 }
-
+.galleryIcon{
+  position: absolute;
+  width: 50px;
+  bottom: 10px;
+  left:  10px;
+}
 .imgSelectWrap {
   top: 10px;
   left: 10px;

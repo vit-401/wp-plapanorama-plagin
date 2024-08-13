@@ -1,11 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.1fceff2c.css",
-    "main.js": "/static/js/main.54d245dd.js",
+    "main.css": "/static/css/main.2868e00e.css",
+    "main.js": "/static/js/main.7438c3df.js",
     "static/js/453.2c4e406e.chunk.js": "/static/js/453.2c4e406e.chunk.js",
+    "static/media/MB-enter-to-bathroom.png": "/static/media/MB-enter-to-bathroom.238cbedaade4714248c7.png",
+    "static/media/MB-view1.png": "/static/media/MB-view1.bfdc743c6c8b2d3dfbd6.png",
+    "static/media/MB-view2.png": "/static/media/MB-view2.4afed01d7454706d7424.png",
     "static/media/bedroom2.png": "/static/media/bedroom2.ef1c9027cf0c285d3c24.png",
+    "static/media/hallway-view2.png": "/static/media/hallway-view2.1f66794bb4fd1fa7b37f.png",
     "static/media/bedroom1.png": "/static/media/bedroom1.2d8f8e0437b771e80451.png",
-    "static/media/coridor_stairs.png": "/static/media/coridor_stairs.13fff95e5adce3e8c481.png",
+    "static/media/bathroomMR.png": "/static/media/bathroomMR.17b5947ea0a36b507cc2.png",
+    "static/media/hallway-view3.png": "/static/media/hallway-view3.13fff95e5adce3e8c481.png",
+    "static/media/MBClosed.png": "/static/media/MBClosed.01edd149245e081e1ff0.png",
+    "static/media/hallway-bathroom.png": "/static/media/hallway-bathroom.8fa7625270d45afa8068.png",
+    "static/media/hallway-view1.png": "/static/media/hallway-view1.31faed7ec1472091b2e1.png",
+    "static/media/laundry.png": "/static/media/laundry.4d0f7ce9a2920fed8e95.png",
     "static/media/plan.png": "/static/media/plan.a46f1b263925e80d3ff0.png",
     "static/media/plan.jpg": "/static/media/plan.ca98bbeb9f0668a0ff9e.jpg",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -13,12 +22,12 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.1fceff2c.css.map": "/static/css/main.1fceff2c.css.map",
-    "main.54d245dd.js.map": "/static/js/main.54d245dd.js.map",
+    "main.2868e00e.css.map": "/static/css/main.2868e00e.css.map",
+    "main.7438c3df.js.map": "/static/js/main.7438c3df.js.map",
     "453.2c4e406e.chunk.js.map": "/static/js/453.2c4e406e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1fceff2c.css",
-    "static/js/main.54d245dd.js"
+    "static/css/main.2868e00e.css",
+    "static/js/main.7438c3df.js"
   ]
 }
