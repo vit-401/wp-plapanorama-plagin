@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import App from "./App";
 import Popup from "./Popup/Popup";
-import PanoramaViewer from "./PanoramaViewer";
+import {dataUnit2} from "./data/data_unit_2";
+import {dataUnit16} from "./data/data_unit_16";
+import {dataUnit23} from "./data/data_unit_23";
+import PanoramaViewer from "./RefactoredPanoramaViewer";
+
 
 function renderReactApp() {
   const rootElement = document.getElementById('react-app');
@@ -12,8 +15,9 @@ function renderReactApp() {
     const root = ReactDOM.createRoot(rootElement);
     root.render(
       <React.StrictMode>
-        <Popup/>
-        {/*<PanoramaViewer/>*/}
+        <Popup {...dataUnit2} id={'unit-2'}/>
+        <Popup {...dataUnit16} id={'unit-16'}/>
+        <Popup {...dataUnit23} id={'unit-23'}/>
       </React.StrictMode>
     );
   }

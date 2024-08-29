@@ -63,12 +63,16 @@
   height: auto; /* Adjust as needed */
   //position: absolute;
 }
-.galleryIcon{
+
+.galleryIcon {
+  font-size: 30px;
   position: absolute;
-  width: 50px;
-  bottom: 10px;
-  left:  10px;
+  bottom: 22px;
+  left: 21px;
+  cursor: pointer;
+  color: #fff;
 }
+
 .imgSelectWrap {
   top: 10px;
   left: 10px;
@@ -147,10 +151,29 @@
   color: #fff;
   opacity: .8;
   position: absolute;
-  z-index: 10;
+  z-index: 1000;
   margin: 0 auto;
   text-align: center;
   right: 0;
   left: 0;
   top: calc(50% - 75px);
+}
+
+.slickWrapper {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  left: 0;
+  z-index: 100;
+}
+
+.slickClose {
+  cursor: pointer;
+  top: 16px;
+  left: 47px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 30px;
+  position: absolute;
+  z-index: 100;
 }
