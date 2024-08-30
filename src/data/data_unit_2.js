@@ -1,5 +1,3 @@
-import plan from "../media/unit_2/1_floor/plan.jpg";
-import plan2 from "../media/unit_2/1_floor/plan_floor1.jpg";
 import {ImagePanorama} from "panolens";
 import bedroom2 from "../media/unit_2/1_floor/bedroom2.jpg";
 import hallway3 from "../media/unit_2/1_floor/hallway-view3.jpg";
@@ -13,6 +11,14 @@ import MBView2 from "../media/unit_2/1_floor/MB-view2.jpg";
 import MBView3 from "../media/unit_2/1_floor/MB-enter-to-bathroom.jpg";
 import MBClosed from "../media/unit_2/1_floor/MBClosed.jpg";
 import bathroomMR from "../media/unit_2/1_floor/bathroomMR.jpg";
+
+
+import basement_210 from "../media/unit_2/basement/210.jpg";
+import basement_213 from "../media/unit_2/basement/213.jpg";
+import basement_212 from "../media/unit_2/basement/212.jpg";
+
+import plan from "../media/unit_2/1_floor/plan.jpg";
+import plan2 from "../media/unit_2/basement/plan.jpg";
 
 
 export const dataUnit2 = {
@@ -64,18 +70,16 @@ export const dataUnit2 = {
     new ImagePanorama(MBView3), //9
     new ImagePanorama(MBClosed), //10
     new ImagePanorama(bathroomMR), //11
+
+    new ImagePanorama(basement_210), //12
+    new ImagePanorama(basement_213), //13
+    new ImagePanorama(basement_212), //14
   ],
 
   floors: [
     {
       value: 'first-floor',
       title: 'First floor',
-      img: plan2,
-      dotPosition: []
-    },
-    {
-      value: 'second-floor',
-      title: 'Second floor',
       img: plan,
       dotPosition: [
         {top: 43, left: 30, pointTo: 0, hoverText: 'bedroom 1'},
@@ -93,10 +97,12 @@ export const dataUnit2 = {
       ]
     },
     {
+      defaultPanorama: 0,
       value: 'basement',
       title: 'Basement',
-      img: plan,
+      img: plan2,
       dotPosition: [
+        {top: 104, left: 13, pointTo: 12, hoverText: 'bedroom 1'},
       ]
     },
   ],
@@ -114,9 +120,8 @@ export const dataUnit2 = {
     10: "MB CLOSED",
     11: "MB BATHROOM",
   },
-  options:[
-    {value: 'second-floor', label: 'Second floor', disabled: false},
-    {value: 'first-floor', label: 'First floor',disabled: true},
-    {value: 'basement', label: 'Basement', disabled: true},
+  options: [
+    {value: 'basement', label: 'Basement'},
+    {value: 'first-floor', label: 'First floor'},
   ],
 }

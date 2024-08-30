@@ -11,15 +11,19 @@ import floor2_225 from "../media/unit_16/2_floor/225.jpg";
 import floor2_226 from "../media/unit_16/2_floor/226.jpg";
 import floor2_232 from "../media/unit_16/2_floor/232.jpg";
 
-import floor3_214 from "../media/unit_16/3_floor/214.jpg";
-import floor3_215 from "../media/unit_16/3_floor/215.jpg";
-import floor3_216 from "../media/unit_16/3_floor/216.jpg";
-import floor3_217 from "../media/unit_16/3_floor/217.jpg";
-import floor3_218 from "../media/unit_16/3_floor/218.jpg";
-import floor3_219 from "../media/unit_16/3_floor/219.jpg";
-import floor3_220 from "../media/unit_16/3_floor/220.jpg";
-import floor3_221 from "../media/unit_16/3_floor/221.jpg";
-import floor3_222 from "../media/unit_16/3_floor/222.jpg";
+import floor2_240_f from "../media/unit_16/2_floor/240_living_stairs to 3rd floor.jpg";
+import floor2_223_f from "../media/unit_16/2_floor/223_kitchen.jpg";
+import floor2_224_f from "../media/unit_16/2_floor/224_living_dining.jpg";
+
+import floor3_214 from "../media/unit_16/3_floor/214_entry to the primary bathroom.jpg";
+import floor3_215 from "../media/unit_16/3_floor/215_primary bedroom.jpg";
+import floor3_216 from "../media/unit_16/3_floor/216_primary bathroom.jpg";
+import floor3_217 from "../media/unit_16/3_floor/217_hallway.jpg";
+import floor3_218 from "../media/unit_16/3_floor/218_hallway_laundry.jpg";
+import floor3_219 from "../media/unit_16/3_floor/219_hallway_stairs to the 2nd floor.jpg";
+import floor3_220 from "../media/unit_16/3_floor/220_bathroom.jpg";
+import floor3_221 from "../media/unit_16/3_floor/221_bedroom.jpg";
+import floor3_222 from "../media/unit_16/3_floor/222_stairs to the 3rd and to the 2nd floor.jpg";
 
 import plan1 from "../media/unit_16/1_floor/plan.jpg";
 import plan2 from "../media/unit_16/2_floor/plan.jpg";
@@ -63,13 +67,13 @@ export const dataUnit16 = {
     {position: [3522.44, -3527.54, -377.11], pointTo: 5, panoramaIndex: 7, hoverText: 'floor2_226'},
     {position: [2966.07, -1747.15, 3612.85], pointTo: 9, panoramaIndex: 7, hoverText: 'floor2_232'},
     {position: [4669.1, -1399.4, -1081.03], pointTo: 8, panoramaIndex: 9, hoverText: 'floor2_232'},
-    {position: [-2626.25, -1442.96, 3991.05], pointTo: 9, panoramaIndex: 8, hoverText: 'floor2_232'},
+    {position: [-1388.61, -2008.78, 4358.27], pointTo: 9, panoramaIndex: 8, hoverText: 'floor2_232'},
     {position: [-1347.92, -1747.25, 4478], pointTo: 6, panoramaIndex: 7, hoverText: 'floor2_232'},
-    {position: [-294.87, -1306.24, 4807.19], pointTo: 9, panoramaIndex: 6, hoverText: 'floor2_232'},
+    {position: [3105.45, -1392.2, 3651.18], pointTo: 9, panoramaIndex: 6, hoverText: 'floor2_232'},
     {position: [4388.92, -2272.55, -719.73], pointTo: 7, panoramaIndex: 6, hoverText: 'floor2_232'},
     {position: [-1074.5, -1789.12, -4535.29], pointTo: 7, panoramaIndex: 9, hoverText: 'floor2_232'},
     {position: [-4140.25, -1215.57, -2514.08], pointTo: 6, panoramaIndex: 9, hoverText: 'floor2_232'},
-    {position: [-4472.17, -305.86, -2194.79], pointTo: 14, panoramaIndex: 17, hoverText: 'floor2_232'},
+    {position: [-4643.17, -1825.7, 163.9], pointTo: 14, panoramaIndex: 17, hoverText: 'floor2_232'},
     {position: [4029.73, -2155.75, 2006.62], pointTo: 14, panoramaIndex: 13, hoverText: 'floor2_232'},
 
     {
@@ -90,15 +94,15 @@ export const dataUnit16 = {
     },
 
     {position: [68.48, -710.09, 4943.38], pointTo: 15, panoramaIndex: 18, hoverText: 'floor3_219'},
-    {position: [-3514.43, -3442.66, -856.77], pointTo: 18, panoramaIndex: 15, hoverText: 'floor3_222'},
-    {position: [-3628.47, -3111.79, 1439.82], pointTo: 16, panoramaIndex: 15, hoverText: 'floor3_220'},
+    {position: [150.31, -3966.76, -3030.4], pointTo: 18, panoramaIndex: 15, arrowUp:true, hoverText: 'floor3_222'},
+    {position: [-138.59, -3311.09, 3735.74], pointTo: 16, panoramaIndex: 15, hoverText: 'floor3_220'},
     {position: [-3934.89, -3077.19, -22.96], pointTo: 15, panoramaIndex: 14, hoverText: 'floor3_219'},
     {position: [3948, -2871.99, 1046.05], pointTo: 14, panoramaIndex: 15, hoverText: 'floor3_218'},
 
     // {position: [-3903.68, -3110.22, -121.55], pointTo: 15, panoramaIndex: 14, hoverText: 'floor3_218'},
     {position: [-170.28, -1693.03, 4691.78], pointTo: 17, panoramaIndex: 14, hoverText: 'floor3_221'},
     {position: [4288.45, -2555.98, -122.21], pointTo: 13, panoramaIndex: 14, hoverText: 'floor3_217'},
-    {position: [-3834.63, -3001.62, -1105.84], pointTo: 15, panoramaIndex: 16, hoverText: 'floor3_217'},
+    {position: [57.88, -3072.97, -3936.38], pointTo: 15, panoramaIndex: 16, hoverText: 'floor3_217'},
 
 
     {position: [4587.94, -1741.33, 926.95], pointTo: 13, panoramaIndex: 15, hoverText: 'floor3_217'},
@@ -117,9 +121,9 @@ export const dataUnit16 = {
     new ImagePanorama(floor1_231), //4
 
     new ImagePanorama(floor2_226), //5 second floor
-    new ImagePanorama(floor2_224), //6
+    new ImagePanorama(floor2_224_f), //6
     new ImagePanorama(floor2_225), //7
-    new ImagePanorama(floor2_223), //8
+    new ImagePanorama(floor2_223_f), //8
     new ImagePanorama(floor2_232), //9
 
     new ImagePanorama(floor3_214), //10 third floor

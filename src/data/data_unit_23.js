@@ -7,7 +7,7 @@ import floor2_241 from "../media/unit_23/2_floor/241.jpg";
 import floor2_242 from "../media/unit_23/2_floor/242.jpg";
 import floor2_243 from "../media/unit_23/2_floor/243.jpg";
 import floor2_244 from "../media/unit_23/2_floor/244.jpg";
-
+import floor2_240 from "../media/unit_23/2_floor/240_living_stairs to 3rd floor.jpg";
 
 import floor3_233 from "../media/unit_23/3_floor/233.jpg";
 import floor3_234 from "../media/unit_23/3_floor/234.jpg";
@@ -41,7 +41,7 @@ export const dataUnit23 = {
       position: [1760.11, -3876.77, 2610.66],
       pointTo: 0,
       panoramaIndex: 5,
-      hoverText: 'Basement',
+      hoverText: 'stairs to basement',
       arrowUp: true,
       floor: 'basement'
     },
@@ -60,12 +60,17 @@ export const dataUnit23 = {
     {position: [-4188.18, -2707.78, 216.64], pointTo: 13, panoramaIndex: 11, hoverText: 'HALLWAY'},
     {position: [4774.54, -1409.51, -362.14], pointTo: 10, panoramaIndex: 11, hoverText: 'HALLWAY'},
     {position: [-840.76, -953.78, 4825.47], pointTo: 10, panoramaIndex: 13, hoverText: 'HALLWAY'},
-    {position: [4000.13, -1358.53, 2655.91], pointTo: 3, panoramaIndex: 5, hoverText: 'HALLWAY'},
+    {position: [4634.64, -886.61, 1629.95], pointTo: 3, panoramaIndex: 5, hoverText: 'HALLWAY'},
     {position: [4088.3, -1312.64, 2543.89], pointTo: 4, panoramaIndex: 3, hoverText: 'HALLWAY'},
     {position: [4366.79, -2106.14, 1183.62], pointTo: 5, panoramaIndex: 4, hoverText: 'HALLWAY'},
     {position: [4768.68, -1335.28, -625.74], pointTo: 5, panoramaIndex: 3, hoverText: 'HALLWAY'},
     {position: [2071.76, -1871.37, 4139.14], pointTo: 6, panoramaIndex: 4, hoverText: 'HALLWAY'},
     {position: [-2593.76, -1566.07, 3968.63], pointTo: 4, panoramaIndex: 6, hoverText: 'HALLWAY'},
+    {position: [3090.75, -1022.69, -3781.56], pointTo: 3, panoramaIndex: 4, hoverText: 'HALLWAY'},
+    {position: [-3598.72, -2088.63, -2758.01], pointTo: 3, panoramaIndex: 14, hoverText: 'HALLWAY'},
+    {position: [-505.79, -2392.79, -4354.72], pointTo: 14, panoramaIndex: 3, hoverText: 'HALLWAY'},
+    {position: [-4685.89, -93.59, 1715.61], pointTo: 10, panoramaIndex: 14, arrowUp:true, floor:'second-floor', hoverText: 'HALLWAY'},
+    {position: [3354.22, -3554.3, 1045.06], pointTo: 14, panoramaIndex: 10, arrowUp:true, floor:'first-floor', hoverText: 'HALLWAY'},
 
   ],
   panoramas: [
@@ -85,6 +90,9 @@ export const dataUnit23 = {
     new ImagePanorama(floor3_237),//11
     new ImagePanorama(floor3_238),//12
     new ImagePanorama(floor3_239),//13
+
+    new ImagePanorama(floor2_240),//14
+
   ],
   floors: [
     {
@@ -108,6 +116,7 @@ export const dataUnit23 = {
         {top: 59, left: 37, pointTo: 4, hoverText: 'hover'},
         {top: 141, left: 49, pointTo: 3, hoverText: 'hover'},
         {top: 39, left: 95, pointTo: 6, hoverText: 'hover'},
+        {top: 161, left: 96, pointTo: 14, hoverText: 'hover'},
       ]
     },
     {
