@@ -58,6 +58,7 @@
 }
 
 .planImage {
+  position: relative;
   max-width: 125px;
   opacity: 0.80;
   height: auto; /* Adjust as needed */
@@ -176,4 +177,20 @@
   font-size: 30px;
   position: absolute;
   z-index: 100;
+}
+
+.compassIndicator {
+  //width: 15px;
+  //height: 15px;
+  //background-color: red; /* Arrow color */
+  //clip-path: polygon(50% 0%, 100% 100%, 50% 80%, 0% 100%); /* Simple arrow shape */
+  //transform-origin: center;
+  //transition: transform 0.3s ease-in-out;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 30px solid rgba(255, 255, 0, 0.5); /* Yellow light */
+  transform-origin: 50% 100%; /* Rotate around the apex */
 }
