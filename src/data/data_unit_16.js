@@ -96,20 +96,23 @@ export const dataUnit16 = {
     {position: [150.31, -3966.76, -3030.4], pointTo: 18, panoramaIndex: 15, arrowUp: true, hoverText: 'STAIRS'},
     {position: [-138.59, -3311.09, 3735.74], pointTo: 16, panoramaIndex: 15, hoverText: 'BATHROOM'},
     {position: [-3934.89, -3077.19, -22.96], pointTo: 15, panoramaIndex: 14, hoverText: 'DOWN STAIRS'},
-    {position: [3948, -2871.99, 1046.05], pointTo: 14, panoramaIndex: 15, hoverText: 'HALLWAY LAUNDRY'},
+    {position: [4018.97, -2918.34, 535.63], pointTo: 14, panoramaIndex: 15, hoverText: 'HALLWAY LAUNDRY'},
 
     {position: [-170.28, -1693.03, 4691.78], pointTo: 17, panoramaIndex: 14, hoverText: 'MASTER BEDROOM'},
     {position: [4288.45, -2555.98, -122.21], pointTo: 13, panoramaIndex: 14, hoverText: 'HALLWAY'},
     {position: [57.88, -3072.97, -3936.38], pointTo: 15, panoramaIndex: 16, hoverText: 'DOWN STAIRS'},
 
-    {position: [4587.94, -1741.33, 926.95], pointTo: 13, panoramaIndex: 15, hoverText: 'HALLWAY'},
-    {position: [-4792.56, -1059.2, -914.66], pointTo: 10, panoramaIndex: 13, hoverText: 'HALLWAY'},
+    {position: [4677.7, -1705.41, 351.74], pointTo: 13, panoramaIndex: 15, hoverText: 'HALLWAY'},
     {position: [4655.19, -1786.07, 213.39], pointTo: 10, panoramaIndex: 11, hoverText: 'HALLWAY'},
     {position: [4544.09, -2061.44, 134.78], pointTo: 11, panoramaIndex: 10, hoverText: 'MASTER BEDROOM'},
     {position: [-4145.77, -1591.89, -2285.53], pointTo: 13, panoramaIndex: 10, hoverText: 'HALLWAY'},
     {position: [2037.06, -2265.75, -3957.39], pointTo: 12, panoramaIndex: 10, hoverText: 'BATHROOM'},
     {position: [4244.47, -2512.16, 775.09], pointTo: 10, panoramaIndex: 12, hoverText: 'HALLWAY'},
 
+    {position: [87.65, -912.88, -4907.85], pointTo: 11, panoramaIndex: 13, hoverText: 'MASTER BEDROOM'},
+    {position: [118.19, -1631.18, -4717.33], pointTo: 10, panoramaIndex: 13, hoverText: 'HALLWAY'},
+    {position: [-4238.69, -2645.97, -40.87], pointTo: 14, panoramaIndex: 13, hoverText: 'HALLWAY LAUNDRY'},
+    {position: [-4699.23, -1675.85, -148.99], pointTo: 15, panoramaIndex: 13, hoverText: 'DOWN STAIRS'},
   ],
   panoramas: [
     new ImagePanorama(floor1_227), //0 ENTER TO THE FIRST FLOOR
