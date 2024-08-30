@@ -18,7 +18,6 @@ function renderReactApp() {
         <Popup {...dataUnit2} id={'unit-2'}/>
         <Popup {...dataUnit16} id={'unit-16'}/>
         <Popup {...dataUnit23} id={'unit-23'}/>
-        <PanoramaViewer {...dataUnit16}/>
       </React.StrictMode>
     );
   }
