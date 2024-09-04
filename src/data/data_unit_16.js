@@ -72,7 +72,6 @@ export const dataUnit16 = {
     {position: [-1074.5, -1789.12, -4535.29], pointTo: 7, panoramaIndex: 9, hoverText: 'STAIRS TO THE BASEMENT'},
     {position: [-4140.25, -1215.57, -2514.08], pointTo: 6, panoramaIndex: 9, hoverText: 'LIVING ROOM'},
     {position: [-4643.17, -1825.7, 163.9], pointTo: 14, panoramaIndex: 17, hoverText: 'HALLWAY LAUNDRY'},
-    {position: [4029.73, -2155.75, 2006.62], pointTo: 14, panoramaIndex: 13, hoverText: 'HALLWAY LAUNDRY'},
 
     {
       position: [2359.37, -1885.29, -3980.61],
