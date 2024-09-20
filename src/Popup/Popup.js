@@ -9,7 +9,7 @@ const Popup = (props) => {
 
   useEffect(() => {
     const popupButton = document.getElementById(props.id);
-      console.log(props.id)
+    console.log(props.id)
 
     if (popupButton) {
       popupButton.addEventListener('click', showModal);
@@ -33,12 +33,9 @@ const Popup = (props) => {
 
   return (
     <>
-      {/*<Button type="primary" onClick={showModal}>*/}
-      {/*  Open Modal*/}
-      {/*</Button>*/}
-      {/*<Modal onCancel={onCancel} footer={null} title="Example" className={styles.modal} width={1200} open={isModalOpen}>*/}
-      {/*  <PanoramaViewer/>*/}
-      {/*</Modal>*/}
+      <Button type="primary" onClick={showModal}>
+        Open Modal
+      </Button>
       <Modal
         onCancel={onCancel}
         footer={null}
@@ -48,7 +45,8 @@ const Popup = (props) => {
         style={{maxWidth: '1500px'}}
         open={isModalOpen}
       >
-        <PanoramaViewer options={props.options} infospotsData={props.infospotsData} panoramas={props.panoramas} rooms={props.rooms}
+        <PanoramaViewer options={props.options} infospotsData={props.infospotsData} panoramas={props.panoramas}
+                        rooms={props.rooms}
                         floors={props.floors}/>
       </Modal>
     </>

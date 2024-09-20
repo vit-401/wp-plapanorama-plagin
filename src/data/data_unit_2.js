@@ -22,7 +22,7 @@ import plan2 from "../media/unit_2/basement/plan.jpg";
 
 
 export const dataUnit2 = {
-  title: "Unit #2",
+  title: "Cascade",
   infospotsData: [
     {position: [4767.34, -1438.1, 345.59], pointTo: 0, panoramaIndex: 2, hoverText: 'ENTRY STAIRS TO THE 2ND LEVEL'},
     {position: [2422.45, -1064.18, 4237.77], pointTo: 2, panoramaIndex: 0, hoverText: 'KITCHEN LIVING DINING'},
@@ -65,24 +65,21 @@ export const dataUnit2 = {
     {position: [3007.7, -2284.48, -3272.55],   pointTo: 12, panoramaIndex: 13, hoverText: 'MASTER BEDROOM VIEW3'},
   ],
   panoramas: [
-    new ImagePanorama(basement_210), //0  ENTRY STAIRS TO THE 2ND LEVEL
-    new ImagePanorama(basement_213), //1  GARAGE
-    new ImagePanorama(basement_212), //2  KITCHEN LIVING DINING
-
-    new ImagePanorama(bedroom2), //3
-    new ImagePanorama(hallway3), //4
-    new ImagePanorama(bedroom1), //5
-    new ImagePanorama(hallway1), //6
-    new ImagePanorama(hallwayBathroom), //7
-    new ImagePanorama(hallway2), //8
-    new ImagePanorama(laundry), //9
-    new ImagePanorama(MBView1), //10
-    new ImagePanorama(MBView2), //11
-    new ImagePanorama(MBView3), //12
-    new ImagePanorama(MBClosed), //13
-    new ImagePanorama(bathroomMR), //14
-
-
+    { panorama: new ImagePanorama(basement_210), initialView: [3717.78, -1138.01, 3143.73] },   // ENTRY STAIRS TO THE 2ND LEVEL
+    { panorama: new ImagePanorama(basement_213), initialView: [2997.2, -1474.13, -3720.71] },   // GARAGE
+    { panorama: new ImagePanorama(basement_212), initialView: [-3051.69, -1365.7, 3717.8] },   // KITCHEN LIVING DINING
+    { panorama: new ImagePanorama(bedroom2), initialView: [4853.41, -1201.69, -19.22] },       // BEDROOM 2
+    { panorama: new ImagePanorama(hallway3), initialView: [-3923.36, -1436.74, -2746.45] },       // HALLWAY 3
+    { panorama: new ImagePanorama(bedroom1), initialView: [-4425.41, -1165.06, -2014.54] },       // BEDROOM 1
+    { panorama: new ImagePanorama(hallway1), initialView: [-430.29, -1073.29, -4864.45] },       // HALLWAY 1
+    { panorama: new ImagePanorama(hallwayBathroom), initialView: [4619.74, -1864.84, 424.74] },// HALLWAY BATHROOM
+    { panorama: new ImagePanorama(hallway2), initialView: [-4892.47, -758.3, 699.1] },       // HALLWAY 2
+    { panorama: new ImagePanorama(laundry), initialView: [-3901.16, -2763.47, -1464.31] },        // LAUNDRY
+    { panorama: new ImagePanorama(MBView1), initialView: [769.86, -720.9, 4887.5] },        // MASTER BEDROOM VIEW 1
+    { panorama: new ImagePanorama(MBView2), initialView: [3237.08, -1492.15, -3506.39] },        // MASTER BEDROOM VIEW 2
+    { panorama: new ImagePanorama(MBView3), initialView: [-4579.52, -795.52, -1842.6] },        // MASTER BEDROOM VIEW 3
+    { panorama: new ImagePanorama(MBClosed), initialView: [-3143.74, -925.52, 3776.29] },       // MASTER BEDROOM CLOSED
+    { panorama: new ImagePanorama(bathroomMR), initialView: [-1184.46, -1437.97, 4639.97] },     // BATHROOM MASTER
   ],
 
   floors: [

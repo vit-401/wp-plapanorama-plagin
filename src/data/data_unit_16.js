@@ -29,7 +29,7 @@ import plan3 from "../media/unit_16/3_floor/plan.jpg";
 
 
 export const dataUnit16 = {
-  title: "Unit #16",
+  title: "Windthrow",
   infospotsData: [
     {position: [4487.7, -1755.3, 1300.27], pointTo: 3, panoramaIndex: 0, hoverText: 'BEDROOM'},
     {position: [-3765.2, -1762.11, -2769.18], pointTo: 1, panoramaIndex: 0, hoverText: 'ENTER TO GARAGE'},
@@ -114,27 +114,27 @@ export const dataUnit16 = {
     {position: [-4699.23, -1675.85, -148.99], pointTo: 15, panoramaIndex: 13, hoverText: 'DOWN STAIRS'},
   ],
   panoramas: [
-    new ImagePanorama(floor1_227), //0 ENTER TO THE FIRST FLOOR
-    new ImagePanorama(floor1_228), //1 ENTER TO GARAGE
-    new ImagePanorama(floor1_229), //2 GARAGE
-    new ImagePanorama(floor1_230), //3 BEDROOM
-    new ImagePanorama(floor1_231), //4 BATHROOM
+    { panorama: new ImagePanorama(floor1_227), initialView: [4562.1, -552.63, -1970.25] }, // ENTER TO THE FIRST FLOOR
+    { panorama: new ImagePanorama(floor1_228), initialView: [-4199.51, -1492.04, 2266.71] }, // ENTER TO GARAGE
+    { panorama: new ImagePanorama(floor1_229), initialView: [4255.12, -2072.75, 1611.73] }, // GARAGE
+    { panorama: new ImagePanorama(floor1_230), initialView: [799.12, -1635.38, 4656.92] }, // BEDROOM
+    { panorama: new ImagePanorama(floor1_231), initialView: [4315.12, -2442.56, 643.14] }, // BATHROOM
 
-    new ImagePanorama(floor2_226), //5 STAIRS TO THE 2ND FLOOR
-    new ImagePanorama(floor2_224_f), //6 LIVING-ROOM
-    new ImagePanorama(floor2_225), //7 STAIRS TO THE BASEMENT
-    new ImagePanorama(floor2_223_f), //8 KITCHEN ROOM
-    new ImagePanorama(floor2_232), //9 ENTER TO UP-STAIRS
+    { panorama: new ImagePanorama(floor2_226), initialView: [3220.66, -2888.68, -2506.57] }, // STAIRS TO THE 2ND FLOOR
+    { panorama: new ImagePanorama(floor2_224_f), initialView: [4443, -1110.01, 2006.89] }, // LIVING-ROOM
+    { panorama: new ImagePanorama(floor2_225), initialView: [-766.58, -1238.3, 4783.2] }, // STAIRS TO THE BASEMENT
+    { panorama: new ImagePanorama(floor2_223_f), initialView: [1697.73, -1510.12, -4453.9] }, // KITCHEN ROOM
+    { panorama: new ImagePanorama(floor2_232), initialView: [4773.9, -1036.41, -1065.71] }, // ENTER TO UP-STAIRS
 
-    new ImagePanorama(floor3_214), //10 HALLWAY
-    new ImagePanorama(floor3_215), //11 MASTER-BEDROOM
-    new ImagePanorama(floor3_216), //12 BATHROOM
-    new ImagePanorama(floor3_217), //13 HALLWAY
-    new ImagePanorama(floor3_218), //14 HALLWAY-LAUNDRY
-    new ImagePanorama(floor3_219), //15 DOWN-STAIRS
-    new ImagePanorama(floor3_220), //16 BATHROOM
-    new ImagePanorama(floor3_221), //17 MASTER-BEDROOM
-    new ImagePanorama(floor3_222), //18 STAIRS
+    { panorama: new ImagePanorama(floor3_214), initialView: [3518.75, -1201.73, -3342.79] }, // HALLWAY
+    { panorama: new ImagePanorama(floor3_215), initialView: [317.09, -888.42, 4910.21] }, // MASTER-BEDROOM
+    { panorama: new ImagePanorama(floor3_216), initialView: [-75.57, -1599.67, -4736.6] }, // BATHROOM
+    { panorama: new ImagePanorama(floor3_217), initialView: [-2468.74, -1917.07, -3902.59] }, // HALLWAY
+    { panorama: new ImagePanorama(floor3_218), initialView: [2619.31, -1812.12, 3854.28] }, // HALLWAY-LAUNDRY
+    { panorama: new ImagePanorama(floor3_219), initialView: [2967.14, -2409.51, 3223.4] }, // DOWN-STAIRS
+    { panorama: new ImagePanorama(floor3_220), initialView: [4714.23, -1599.6, 466.2] }, // BATHROOM
+    { panorama: new ImagePanorama(floor3_221), initialView: [-720.5, -1812.23, -4603.99] }, // MASTER-BEDROOM
+    { panorama: new ImagePanorama(floor3_222), initialView: [2532.67, -2673.83, 3381.75] }  // STAIRS
   ],
   floors: [
     {

@@ -23,7 +23,7 @@ import plan3 from "../media/unit_23/3_floor/Unit 23_level 3_ Top view.jpg";
 
 
 export const dataUnit23 = {
-  title: "Unit #23",
+  title: "Alpine",
   infospotsData: [
     {position: [655.07, -3109.98, -3849.8], pointTo: 1, panoramaIndex: 0, hoverText: 'GARAGE'},
     {position: [-742.78, -3553.01, -3436.66], pointTo: 0, panoramaIndex: 1, hoverText: 'STAIRS'},
@@ -73,25 +73,24 @@ export const dataUnit23 = {
     {position: [3354.22, -3554.3, 1045.06], pointTo: 14, panoramaIndex: 10, arrowUp:true, floor:'first-floor', hoverText: 'LIVING ROOM'},
   ],
   panoramas: [
-    new ImagePanorama(floor1_245), //0 STAIRS
-    new ImagePanorama(floor1_246), //1 GARAGE
-    new ImagePanorama(floor1_247), //2 GARAGE
+    { panorama: new ImagePanorama(floor1_245), initialView: [-2864.47, -1934.64, -3612.76] }, // STAIRS
+    { panorama: new ImagePanorama(floor1_246), initialView: [4913.6, -925.47, 0.66] }, // GARAGE
+    { panorama: new ImagePanorama(floor1_247), initialView: [-3159.35, -776.94, 3796.69] }, // GARAGE
 
-    new ImagePanorama(floor2_241), //3 KITCHEN-ROOM
-    new ImagePanorama(floor2_242), //4 LIVING-ROOM
-    new ImagePanorama(floor2_243), //5 DOWN STAIRS
-    new ImagePanorama(floor2_244), //6 BATHROOM
+    { panorama: new ImagePanorama(floor2_241), initialView: [-3179.95, -1183.42, -3672.53] }, // KITCHEN-ROOM
+    { panorama: new ImagePanorama(floor2_242), initialView: [3438.49, -2653.37, 2477.18] }, // LIVING-ROOM
+    { panorama: new ImagePanorama(floor2_243), initialView: [4162.48, -1864.9, -2048.39] }, // DOWN STAIRS
+    { panorama: new ImagePanorama(floor2_244), initialView: [-4478.92, -2158.04, -531.15] }, // BATHROOM
 
-    new ImagePanorama(floor3_233),//7 MASTER BEDROOM
-    new ImagePanorama(floor3_234),//8 MASTER BEDROOM-CLOSED
-    new ImagePanorama(floor3_235),//9 BATHROOM
-    new ImagePanorama(floor3_236),//10 HALLWAY
-    new ImagePanorama(floor3_237),//11 HALLWAY
-    new ImagePanorama(floor3_238),//12 BATHROOM
-    new ImagePanorama(floor3_239),//13 MASTER-BEDROOM
+    { panorama: new ImagePanorama(floor3_233), initialView: [-2855.05, -1917.16, -3629.49] }, // MASTER BEDROOM
+    { panorama: new ImagePanorama(floor3_234), initialView: [3528.14, -2376.44, 2627.69] }, // MASTER BEDROOM-CLOSED
+    { panorama: new ImagePanorama(floor3_235), initialView: [-684.46, -2508.01, 4270.99] }, // BATHROOM
+    { panorama: new ImagePanorama(floor3_236), initialView: [-660.02, -2003.93, -4533.06] }, // HALLWAY
+    { panorama: new ImagePanorama(floor3_237), initialView: [-2434.95, -2605.28, 3504.79] }, // HALLWAY
+    { panorama: new ImagePanorama(floor3_238), initialView: [-899.09, -1986.52, 4499.48] }, // BATHROOM
+    { panorama: new ImagePanorama(floor3_239), initialView: [-3832.14, -2208.9, -2331.4] }, // MASTER-BEDROOM
 
-    new ImagePanorama(floor2_240),//14 LIVING-ROOM
-
+    { panorama: new ImagePanorama(floor2_240), initialView: [-4934.42, -795.5, 136.6] }, // LIVING-ROOM
   ],
   floors: [
     {

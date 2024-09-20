@@ -68,7 +68,7 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
     });
 
 
-    panoramasRef.current = panoramas;
+    panoramasRef.current = panoramas.map(p=>p.panorama);
 
 
     const circleOutlined = createCircleWithBorder();
@@ -89,20 +89,21 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
         switchPanorama(data.pointTo);
       });
       infospotRefs.current[index] = infospot;
-      panoramas[data.panoramaIndex].add(infospot);
+      panoramas[data.panoramaIndex].panorama.add(infospot);
     });
 
     panoramas.forEach((panorama) => {
-      panorama.addEventListener("enter-fade-start", () => {
-        viewer.tweenControlCenter(new THREE.Vector3(-3762.26, -1741.48, -2784.88), 0);
+      panorama.panorama.addEventListener("enter-fade-start", () => {
+        console.log()
+        viewer.tweenControlCenter(new THREE.Vector3(...(panorama.initialView || [-0, 5000, 0])), 0);
       });
-      panorama.addEventListener('progress', () => {
+      panorama.panorama.addEventListener('progress', () => {
         setLoading(true);
       });
-      panorama.addEventListener('load', () => {
+      panorama.panorama.addEventListener('load', () => {
         setLoading(false);
       });
-      viewer.add(panorama);
+      viewer.add(panorama.panorama);
     });
 
     viewer.OrbitControls.noZoom = true;
@@ -110,6 +111,30 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
     viewer.getControl().rotateSpeed *= -2;
     viewer.getControl().momentumScalingFactor *= 0;
     viewer.getCamera().updateProjectionMatrix();
+    const controls = viewer.getControl();
+
+
+    const handleControlChange = () => {
+      // Create a vector to store the camera's world direction
+      const direction = new THREE.Vector3();
+      viewer.camera.getWorldDirection(direction);
+
+      // Optionally, multiply the direction vector by a scalar to get a point in space
+      // For example, if your panorama sphere has a radius of 5000 units:
+      direction.x = -direction.x
+      const radius = 5000; // Adjust this value based on your scene scale
+      const lookAtPoint = direction.clone().multiplyScalar(radius);
+
+      // Log the point in space where the camera is looking
+      console.log(
+        '%cCamera is looking at point: %c[ %c%s%c, %c%s%c, %c%s%c ]',
+        'color: blue; font-weight: bold;',      // Label style
+        'color: black;',                        // Bracket style
+        'color: red;', parseFloat(lookAtPoint.x.toFixed(2)), 'color: black;',   // X-coordinate
+        'color: red;', parseFloat(lookAtPoint.y.toFixed(2)), 'color: black;', // Y-coordinate
+        'color: red;', parseFloat(lookAtPoint.z.toFixed(2)), 'color: black;' // Z-coordinate
+      );
+    };
 
     containerRef.current.addEventListener("click", (e) => {
       const position = viewer.getPosition();
@@ -117,6 +142,7 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
         console.log('Click position: ', [parseFloat(position.x), parseFloat(position.y), parseFloat(position.z)]);
       }
     });
+    // controls.addEventListener('change', handleControlChange);
 
     viewerRef.current = viewer;
 

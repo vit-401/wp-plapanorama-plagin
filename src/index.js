@@ -6,7 +6,6 @@ import Popup from "./Popup/Popup";
 import {dataUnit2} from "./data/data_unit_2";
 import {dataUnit16} from "./data/data_unit_16";
 import {dataUnit23} from "./data/data_unit_23";
-import PanoramaViewer from "./RefactoredPanoramaViewer";
 
 
 function renderReactApp() {

@@ -142,7 +142,7 @@ const PanoramaViewer = (props) => {
           {/*              className={styles.galleryIcon}  alt=""/>*/}
           {/*<img onClick={onOpenGallery} className={styles.galleryIcon} src={galleryIcon} alt=""/>*/}
         </div>
-        <div className={classNames(styles.info, styles.infoPlan)}>A-280 PLAN</div>
+        {/*<div className={classNames(styles.info, styles.infoPlan)}>A-280 PLAN</div>*/}
 
         <div className={classNames(styles.info, styles.infoRoom)}>{props.rooms[activeRoom]}</div>
         <div id="panolens" className={classNames(styles.image, 'custom-cursor')} ref={containerRef}></div>
