@@ -71,10 +71,9 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
     panoramasRef.current = panoramas;
 
 
-    const circleOutlined = createCircleWithBorder();
 
     infospotsData.forEach((data, index) => {
-      let circleOutlinedIcon = circleOutlined
+      let circleOutlinedIcon = createCircleWithBorder();
       let scale = 500
       if (data.arrowUp) circleOutlinedIcon = createArrowUp(1000)
       if (data.arrowLeft) circleOutlinedIcon = createArrowLeft(1000)

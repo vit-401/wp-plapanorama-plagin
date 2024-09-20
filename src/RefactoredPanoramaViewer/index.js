@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import * as THREE from 'three';
 import {Viewer} from 'panolens';
 import {Select, Spin} from "antd";
@@ -86,12 +86,26 @@ const PanoramaViewer = (props) => {
     onImageClick
   } = usePanoramaViewer(containerRef, props.panoramas, props.infospotsData, setActiveFloor);
 
-  const handleChangeSelect = (value) => {
-    console.log(value)
-    const currentFloor = props.floors.find(floor=>floor.value === value)
-    switchPanorama(currentFloor.defaultPanorama)
+  useEffect(() => {
+    if (!props.panoramas || !props.infospotsData) return;
 
-    setActiveFloor(value);
+    // Панорами та infospots завантажені, можна працювати з ними
+  }, [props.panoramas, props.infospotsData]);
+
+  // const handleChangeSelect = (value) => {
+  //   console.log(value)
+  //   const currentFloor = props.floors.find(floor=>floor.value === value)
+  //   switchPanorama(currentFloor.defaultPanorama)
+  //
+  //   setActiveFloor(value);
+  // };
+  const handleChangeSelect = (value) => {
+    const currentFloor = props.floors.find(floor => floor.value === value);
+
+    if (currentFloor && currentFloor.defaultPanorama !== undefined) {
+      switchPanorama(currentFloor.defaultPanorama);
+      setActiveFloor(value);
+    }
   };
   console.log('activeFloor', activeFloor)
 

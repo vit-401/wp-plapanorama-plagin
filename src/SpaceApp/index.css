@@ -1,0 +1,8 @@
+.element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate3d(0px, 0px, 0px) scale(1); /* Початкова позиція */
+    z-index: 10;
+    transition: transform 0.3s ease; /* Для плавного переходу */
+}

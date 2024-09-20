@@ -26,6 +26,3 @@ export default function createCircleWithBorder() {
   // Return the PNG data URL
   return canvas.toDataURL('image/png');
 }
-
-
-
