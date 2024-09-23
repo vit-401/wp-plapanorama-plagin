@@ -115,6 +115,7 @@ const PanoramaViewer = (props) => {
       {/*</div>*/}
       {/*<SlickSlider/>*/}
       {/*</div>*/}
+
       <div className={styles.wrapDropdown}>
         <Select
           // value={activeFloor}
