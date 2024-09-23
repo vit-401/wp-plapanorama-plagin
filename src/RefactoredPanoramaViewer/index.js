@@ -114,6 +114,7 @@ const PanoramaViewer = (props) => {
         <div className={styles.selectInfoWrap}>
           <div className={styles.lable}>Choose your location:</div>
           <Select
+            dropdownStyle={{ width: 300 }}
             value={activeRoom}
             style={{width: '100%', maxWidth: '137px'}}
             onChange={changeRoom}
@@ -124,6 +125,7 @@ const PanoramaViewer = (props) => {
         <div className={styles.selectInfoWrap}>
           <div className={styles.lable}>Choose your floor:</div>
           <Select
+            dropdownStyle={{ width: 300 }}
             value={activeFloor}
             style={{width: '100%', maxWidth: '137px'}}
             onChange={handleChangeSelect}

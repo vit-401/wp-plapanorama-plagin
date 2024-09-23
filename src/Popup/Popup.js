@@ -33,9 +33,9 @@ const Popup = (props) => {
 
   return (
     <>
-      {/*<Button type="primary" onClick={showModal}>*/}
-      {/*  Open Modal*/}
-      {/*</Button>*/}
+      <Button type="primary" onClick={showModal}>
+        Open Modal
+      </Button>
       <Modal
         // style={{ }}
         onCancel={onCancel}
