@@ -12,7 +12,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-height:100vh
+    max-height: 100vh
   }
 
   canvas {
@@ -188,12 +188,39 @@
   z-index: 100;
 }
 
-.wrapDropdown{
+.descDropDown {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 100%;
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.wrapDropdown {
   display: none;
   @media (max-width: 480px) {
     display: flex;
-    justify-content: space-between;
+    //justify-content: space-between;
     margin-bottom: 10px;
+    flex-direction: column;
     gap: 10px;
   }
+}
+
+.lable {
+  margin-right: 10px;
+  font-size: 16px; /* Make the font size slightly larger */
+  font-weight: 600; /* Make the text bold */
+  color: #333; /* Use a darker color for better readability */
+  letter-spacing: 0.5px; /* Slightly increase letter spacing for readability */
+  font-family: 'Arial', sans-serif; /* Change font-family for a modern look */
+}
+
+.selectInfoWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

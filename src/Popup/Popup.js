@@ -33,9 +33,9 @@ const Popup = (props) => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
-        Open Modal
-      </Button>
+      {/*<Button type="primary" onClick={showModal}>*/}
+      {/*  Open Modal*/}
+      {/*</Button>*/}
       <Modal
         // style={{ }}
         onCancel={onCancel}
@@ -44,7 +44,7 @@ const Popup = (props) => {
         className={styles.modal}
         width={window.innerWidth < 768 ? '95%' : '80%'}
         style={{
-          top:0,
+          // top:0,
           maxWidth: '1500px'
         }}
         wrapClassName="fullscreen-modal"

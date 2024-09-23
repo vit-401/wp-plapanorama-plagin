@@ -94,7 +94,6 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
 
     panoramas.forEach((panorama) => {
       panorama.panorama.addEventListener("enter-fade-start", () => {
-        console.log()
         viewer.tweenControlCenter(new THREE.Vector3(...(panorama.initialView || [-0, 5000, 0])), 0);
       });
       panorama.panorama.addEventListener('progress', () => {

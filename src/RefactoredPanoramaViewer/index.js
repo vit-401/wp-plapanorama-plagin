@@ -7,7 +7,6 @@ import {LoadingOutlined} from '@ant-design/icons';
 import FloorSelector from './FloorSelector';
 import usePanoramaViewer from "../hooks/usePanoramaViewer";
 import classNames from "classnames";
-import SlickSlider from "../SwiperSlider";
 import {mapFloorsToSelectOptions} from "../utils/mapFloorsToSelectOptions";
 // import SlickSlider from "../SwiperSlider";
 
@@ -89,50 +88,50 @@ const PanoramaViewer = (props) => {
   } = usePanoramaViewer(containerRef, props.panoramas, props.infospotsData, setActiveFloor);
 
   const handleChangeSelect = (value) => {
-    console.log(value)
-    const currentFloor = props.floors.find(floor=>floor.value === value)
+    const currentFloor = props.floors.find(floor => floor.value === value)
     switchPanorama(currentFloor.defaultPanorama)
-
     setActiveFloor(value);
   };
-  console.log('activeFloor', activeFloor)
+  const changeRoom = (value) => {
+    handleDotClick(value)
+  };
 
-  const onOpenGallery = () => {
-    setOpenGallery(true)
-  }
-  const onCloseGallery = () => {
-    setOpenGallery(false)
-  }
   console.log(loading, 'loading')
-  console.log(props.floors.filter(f=>activeFloor===f.value))
   return (
     <div className={styles.panoramaWrap}>
       {loading && (<Spin indicator={<LoadingOutlined style={{fontSize: 150}} spin/>} className={styles.spin}/>)}
-
-      {/*<div className={styles.slickWrapper} style={{display: openGallery ? 'block': 'none'}} >*/}
-      {/*<div className={styles.slickClose} onClick={onCloseGallery}>*/}
-      {/*  <ArrowLeftOutlined />*/}
-      {/*</div>*/}
-      {/*<SlickSlider/>*/}
-      {/*</div>*/}
-
-      <div className={styles.wrapDropdown}>
+      <div className={styles.descDropDown}>
+        <div className={styles.lable}>Choose your location:</div>
         <Select
-          // value={activeFloor}
-          className={styles.select}
-          style={{width: '100%'}}
-          // onChange={handleChangeSelect}
-          options={mapFloorsToSelectOptions(props.floors.find(f=>activeFloor===f.value).dotPosition)}
+          value={activeRoom}
+          style={{width: '100%', maxWidth: '200px'}}
+          onChange={changeRoom}
+          options={mapFloorsToSelectOptions(props.floors.find(f => activeFloor === f.value).dotPosition)}
           placeholder={"test2"}
         />
-        <Select
-          value={activeFloor}
-          className={styles.select}
-          style={{width: '100%'}}
-          onChange={handleChangeSelect}
-          options={props.options}
-          placeholder={"test21"}
-        />
+      </div>
+      <div className={styles.wrapDropdown}>
+        <div className={styles.selectInfoWrap}>
+          <div className={styles.lable}>Choose your location:</div>
+          <Select
+            value={activeRoom}
+            style={{width: '100%', maxWidth: '137px'}}
+            onChange={changeRoom}
+            options={mapFloorsToSelectOptions(props.floors.find(f => activeFloor === f.value).dotPosition)}
+            placeholder={"test2"}
+          />
+        </div>
+        <div className={styles.selectInfoWrap}>
+          <div className={styles.lable}>Choose your floor:</div>
+          <Select
+            value={activeFloor}
+            style={{width: '100%', maxWidth: '137px'}}
+            onChange={handleChangeSelect}
+            options={props.options}
+            placeholder={"test21"}
+          />
+        </div>
+
       </div>
       <div className={styles.imagesWrap}>
         <div className={styles.planContainer}>
