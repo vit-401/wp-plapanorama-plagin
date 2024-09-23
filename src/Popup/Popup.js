@@ -29,13 +29,14 @@ const Popup = (props) => {
   };
   const onCancel = () => {
     setIsModalOpen(false);
+    // window.location.reload(); we can do it in resize or for mobile device
   }
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
-        Open Modal
-      </Button>
+      {/*<Button type="primary" onClick={showModal}>*/}
+      {/*  Open Modal*/}
+      {/*</Button>*/}
       <Modal
         // style={{ }}
         onCancel={onCancel}
