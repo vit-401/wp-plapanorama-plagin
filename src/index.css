@@ -1,41 +1,61 @@
 @import 'normalize.css';
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 /*#react-app{*/
 /*  width: 200px;*/
 /*}*/
 
 .ant-modal-content {
-  position: absolute !important;
-  width: 100%;
+    position: absolute !important;
+    width: 100%;
 
 }
+
 .modal-content {
 }
+
 /* Add this CSS to your stylesheet */
 
 #panolens .custom-cursor {
-  position: absolute;
-  width: 40px; /* Adjust the diameter of the circle */
-  height: 40px;
-  border: 2px solid white; /* Set the border color and width */
-  background-color: rgba(255, 255, 255, 0.2); /* Light white to simulate shadow */
-  border-radius: 50%; /* Make it a circle */
-  pointer-events: none; /* Ensure it doesn't interfere with interactions */
-  transform: translate(-50%, -50%);
-  visibility: hidden; /* Initially hidden */
+    position: absolute;
+    width: 40px; /* Adjust the diameter of the circle */
+    height: 40px;
+    border: 2px solid white; /* Set the border color and width */
+    background-color: rgba(255, 255, 255, 0.2); /* Light white to simulate shadow */
+    border-radius: 50%; /* Make it a circle */
+    pointer-events: none; /* Ensure it doesn't interfere with interactions */
+    transform: translate(-50%, -50%);
+    visibility: hidden; /* Initially hidden */
+}
+@media (max-width: 480px) {
+    .fullscreen-modal .ant-modal {
+        top: 0;
+        width: 100% !important;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .fullscreen-modal .ant-modal-content {
+        height: 100vh;
+    }
+
+    .fullscreen-modal .ant-modal-body {
+        /*height: 100%;*/
+        overflow-y: auto;
+    }
 }
 
 /*#panolens .custom-cursor {*/

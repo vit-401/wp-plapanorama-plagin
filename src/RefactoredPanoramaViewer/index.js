@@ -8,6 +8,7 @@ import FloorSelector from './FloorSelector';
 import usePanoramaViewer from "../hooks/usePanoramaViewer";
 import classNames from "classnames";
 import SlickSlider from "../SwiperSlider";
+import {mapFloorsToSelectOptions} from "../utils/mapFloorsToSelectOptions";
 // import SlickSlider from "../SwiperSlider";
 
 
@@ -74,6 +75,7 @@ const PanoramaViewer = (props) => {
   const containerRef = useRef(null);
 
   const [activeFloor, setActiveFloor] = useState(props.options[0].value);
+  // const [activeRoom, setActiveRoom] = useState(props.options[0].value);
   const [hovered, setHovered] = useState(false);
   const {
     viewerRef,
@@ -95,7 +97,6 @@ const PanoramaViewer = (props) => {
   };
   console.log('activeFloor', activeFloor)
 
-
   const onOpenGallery = () => {
     setOpenGallery(true)
   }
@@ -103,16 +104,35 @@ const PanoramaViewer = (props) => {
     setOpenGallery(false)
   }
   console.log(loading, 'loading')
+  console.log(props.floors.filter(f=>activeFloor===f.value))
   return (
     <div className={styles.panoramaWrap}>
       {loading && (<Spin indicator={<LoadingOutlined style={{fontSize: 150}} spin/>} className={styles.spin}/>)}
 
       {/*<div className={styles.slickWrapper} style={{display: openGallery ? 'block': 'none'}} >*/}
-        {/*<div className={styles.slickClose} onClick={onCloseGallery}>*/}
-        {/*  <ArrowLeftOutlined />*/}
-        {/*</div>*/}
-        {/*<SlickSlider/>*/}
+      {/*<div className={styles.slickClose} onClick={onCloseGallery}>*/}
+      {/*  <ArrowLeftOutlined />*/}
       {/*</div>*/}
+      {/*<SlickSlider/>*/}
+      {/*</div>*/}
+      <div className={styles.wrapDropdown}>
+        <Select
+          // value={activeFloor}
+          className={styles.select}
+          style={{width: '100%'}}
+          // onChange={handleChangeSelect}
+          options={mapFloorsToSelectOptions(props.floors.find(f=>activeFloor===f.value).dotPosition)}
+          placeholder={"test2"}
+        />
+        <Select
+          value={activeFloor}
+          className={styles.select}
+          style={{width: '100%'}}
+          onChange={handleChangeSelect}
+          options={props.options}
+          placeholder={"test21"}
+        />
+      </div>
       <div className={styles.imagesWrap}>
         <div className={styles.planContainer}>
           <div className={styles.imgSelectWrap}>
@@ -145,6 +165,7 @@ const PanoramaViewer = (props) => {
         {/*<div className={classNames(styles.info, styles.infoPlan)}>A-280 PLAN</div>*/}
 
         <div className={classNames(styles.info, styles.infoRoom)}>{props.rooms[activeRoom]}</div>
+
         <div id="panolens" className={classNames(styles.image, 'custom-cursor')} ref={containerRef}></div>
       </div>
 

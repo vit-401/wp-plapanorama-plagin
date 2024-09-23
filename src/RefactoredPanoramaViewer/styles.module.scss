@@ -7,6 +7,13 @@
   //max-width: 1200px !important;
   height: 500px; // Default height, adjust as needed
   max-height: 70vh; // Ensures the height doesn't exceed 70% of the viewport height
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height:100vh
+  }
 
   canvas {
     //width: 100% !important;
@@ -16,6 +23,9 @@
 .panoramaWrap {
   display: flex;
   flex-direction: column;
+  @media (max-width: 480px) {
+    //height: 100%;
+  }
 }
 
 .buttonGroup {
@@ -176,4 +186,14 @@
   font-size: 30px;
   position: absolute;
   z-index: 100;
+}
+
+.wrapDropdown{
+  display: none;
+  @media (max-width: 480px) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
 }

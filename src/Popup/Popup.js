@@ -33,16 +33,21 @@ const Popup = (props) => {
 
   return (
     <>
-      {/*<Button type="primary" onClick={showModal}>*/}
-      {/*  Open Modal*/}
-      {/*</Button>*/}
+      <Button type="primary" onClick={showModal}>
+        Open Modal
+      </Button>
       <Modal
+        // style={{ }}
         onCancel={onCancel}
         footer={null}
         title={props.title}
         className={styles.modal}
         width={window.innerWidth < 768 ? '95%' : '80%'}
-        style={{maxWidth: '1500px'}}
+        style={{
+          top:0,
+          maxWidth: '1500px'
+        }}
+        wrapClassName="fullscreen-modal"
         open={isModalOpen}
       >
         <PanoramaViewer options={props.options} infospotsData={props.infospotsData} panoramas={props.panoramas}
