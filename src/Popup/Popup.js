@@ -6,7 +6,6 @@ import styles from './styles.module.scss';
 const Popup = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-
   useEffect(() => {
     const popupButton = document.getElementById(props.id);
     console.log(props.id)
@@ -29,6 +28,9 @@ const Popup = (props) => {
   };
   const onCancel = () => {
     setIsModalOpen(false);
+    if (window.innerWidth < 450) {
+      window.location.reload();
+    }
     // window.location.reload(); we can do it in resize or for mobile device
   }
 
@@ -38,6 +40,7 @@ const Popup = (props) => {
       {/*  Open Modal*/}
       {/*</Button>*/}
       <Modal
+        // mask={false}
         // style={{ }}
         onCancel={onCancel}
         footer={null}
@@ -51,9 +54,10 @@ const Popup = (props) => {
         wrapClassName="fullscreen-modal"
         open={isModalOpen}
       >
-        <PanoramaViewer options={props.options} infospotsData={props.infospotsData} panoramas={props.panoramas}
-                        rooms={props.rooms}
-                        floors={props.floors}/>
+        <PanoramaViewer
+          options={props.options} infospotsData={props.infospotsData} panoramas={props.panoramas}
+          rooms={props.rooms}
+          floors={props.floors}/>
       </Modal>
     </>
   );

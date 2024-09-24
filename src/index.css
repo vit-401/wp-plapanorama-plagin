@@ -49,12 +49,12 @@ code {
     }
 
     .fullscreen-modal .ant-modal-content {
-        height: 100vh;
+        /*height: 100vh;*/
     }
 
     .fullscreen-modal .ant-modal-body {
-        /*height: 100%;*/
-        overflow-y: auto;
+        /*height: 95%;*/
+        /*overflow-y: auto;*/
     }
 }
 

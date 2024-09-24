@@ -15,8 +15,8 @@ function renderReactApp() {
     root.render(
       <React.StrictMode>
         <Popup {...dataUnit2} id={'unit-2'}/>
-        <Popup {...dataUnit16} id={'unit-16'}/>
-        <Popup {...dataUnit23} id={'unit-23'}/>
+        <Popup {...dataUnit16}  id={'unit-16'}/>
+        <Popup {...dataUnit23}  id={'unit-23'}/>
       </React.StrictMode>
     );
   }

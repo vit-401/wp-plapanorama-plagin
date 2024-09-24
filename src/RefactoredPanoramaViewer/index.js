@@ -1,13 +1,14 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import * as THREE from 'three';
 import {Viewer} from 'panolens';
-import {Select, Spin} from "antd";
+import {Button, Select, Spin} from "antd";
 import styles from './styles.module.scss';
 import {LoadingOutlined} from '@ant-design/icons';
 import FloorSelector from './FloorSelector';
-import usePanoramaViewer from "../hooks/usePanoramaViewer";
 import classNames from "classnames";
 import {mapFloorsToSelectOptions} from "../utils/mapFloorsToSelectOptions";
+import usePanoramaViewerOptimize from "../hooks/usePanoramaViewerOptimize";
+import usePanoramaViewer from "../hooks/usePanoramaViewer";
 // import SlickSlider from "../SwiperSlider";
 
 
@@ -84,7 +85,7 @@ const PanoramaViewer = (props) => {
     switchPanorama,
     loading,
     handleDotClick,
-    onImageClick
+    onImageClick,
   } = usePanoramaViewer(containerRef, props.panoramas, props.infospotsData, setActiveFloor);
 
   const handleChangeSelect = (value) => {
@@ -95,6 +96,8 @@ const PanoramaViewer = (props) => {
   const changeRoom = (value) => {
     handleDotClick(value)
   };
+
+
 
   console.log(loading, 'loading')
   return (
@@ -114,7 +117,7 @@ const PanoramaViewer = (props) => {
         <div className={styles.selectInfoWrap}>
           <div className={styles.lable}>Choose your location:</div>
           <Select
-            dropdownStyle={{ width: 300 }}
+            dropdownStyle={{width: 300}}
             value={activeRoom}
             style={{width: '100%', maxWidth: '137px'}}
             onChange={changeRoom}
@@ -125,7 +128,7 @@ const PanoramaViewer = (props) => {
         <div className={styles.selectInfoWrap}>
           <div className={styles.lable}>Choose your floor:</div>
           <Select
-            dropdownStyle={{ width: 300 }}
+            dropdownStyle={{width: 300}}
             value={activeFloor}
             style={{width: '100%', maxWidth: '137px'}}
             onChange={handleChangeSelect}
