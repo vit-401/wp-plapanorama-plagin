@@ -95,8 +95,9 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
 
     panoramas.forEach((panorama) => {
       panorama.panorama.addEventListener("enter-fade-start", () => {
-        // viewer.tweenControlCenter(new THREE.Vector3(...(panorama.initialView || [-0, 5000, 0])), 0);
-        viewer.tweenControlCenter(new THREE.Vector3(0, 0, 0 ), 0);
+        viewer.tweenControlCenter(new THREE.Vector3(...(panorama.initialView || [-0, 5000, 0])), 0);
+        // NEED CALL with SERGEY DESIGNER and investigate how he is created the panorams to understed the center point
+        // viewer.tweenControlCenter(new THREE.Vector3(0, 0, 0 ), 0);
       });
       panorama.panorama.addEventListener('progress', () => {
         setLoading(true);
