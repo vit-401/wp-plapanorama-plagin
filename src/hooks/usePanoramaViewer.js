@@ -25,6 +25,7 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
   const viewerRef = useRef(null);
   const panoramasRef = useRef([]);
   const infospotRefs = useRef([]);
+  const [direction, setDirection] = useState(0);
 
   const [activeRoom, setActiveRoom] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -68,7 +69,7 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
     });
 
 
-    panoramasRef.current = panoramas.map(p=>p.panorama);
+    panoramasRef.current = panoramas.map(p => p.panorama);
 
 
     const circleOutlined = createCircleWithBorder();
@@ -94,7 +95,8 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
 
     panoramas.forEach((panorama) => {
       panorama.panorama.addEventListener("enter-fade-start", () => {
-        viewer.tweenControlCenter(new THREE.Vector3(...(panorama.initialView || [-0, 5000, 0])), 0);
+        // viewer.tweenControlCenter(new THREE.Vector3(...(panorama.initialView || [-0, 5000, 0])), 0);
+        viewer.tweenControlCenter(new THREE.Vector3(0, 0, 0 ), 0);
       });
       panorama.panorama.addEventListener('progress', () => {
         setLoading(true);
@@ -113,26 +115,38 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
     const controls = viewer.getControl();
 
 
+    // const handleControlChange = () => {
+    //   // Create a vector to store the camera's world direction
+    //   const direction = new THREE.Vector3();
+    //   viewer.camera.getWorldDirection(direction);
+    //
+    //   // Optionally, multiply the direction vector by a scalar to get a point in space
+    //   // For example, if your panorama sphere has a radius of 5000 units:
+    //   direction.x = -direction.x
+    //   const radius = 5000; // Adjust this value based on your scene scale
+    //   const lookAtPoint = direction.clone().multiplyScalar(radius);
+    //
+    //   // Log the point in space where the camera is looking
+    //   console.log(
+    //     '%cCamera is looking at point: %c[ %c%s%c, %c%s%c, %c%s%c ]',
+    //     'color: blue; font-weight: bold;',      // Label style
+    //     'color: black;',                        // Bracket style
+    //     'color: red;', parseFloat(lookAtPoint.x.toFixed(2)), 'color: black;',   // X-coordinate
+    //     'color: red;', parseFloat(lookAtPoint.y.toFixed(2)), 'color: black;', // Y-coordinate
+    //     'color: red;', parseFloat(lookAtPoint.z.toFixed(2)), 'color: black;' // Z-coordinate
+    //   );
+    // };
     const handleControlChange = () => {
-      // Create a vector to store the camera's world direction
-      const direction = new THREE.Vector3();
-      viewer.camera.getWorldDirection(direction);
+      const euler = new THREE.Euler().setFromQuaternion(viewer.camera.quaternion, 'YXZ');
+      let yaw = THREE.MathUtils.radToDeg(euler.y);
 
-      // Optionally, multiply the direction vector by a scalar to get a point in space
-      // For example, if your panorama sphere has a radius of 5000 units:
-      direction.x = -direction.x
-      const radius = 5000; // Adjust this value based on your scene scale
-      const lookAtPoint = direction.clone().multiplyScalar(radius);
+      // Adjust yaw if necessary (depends on your coordinate system)
+      yaw = -yaw; // Negate if needed
 
-      // Log the point in space where the camera is looking
-      console.log(
-        '%cCamera is looking at point: %c[ %c%s%c, %c%s%c, %c%s%c ]',
-        'color: blue; font-weight: bold;',      // Label style
-        'color: black;',                        // Bracket style
-        'color: red;', parseFloat(lookAtPoint.x.toFixed(2)), 'color: black;',   // X-coordinate
-        'color: red;', parseFloat(lookAtPoint.y.toFixed(2)), 'color: black;', // Y-coordinate
-        'color: red;', parseFloat(lookAtPoint.z.toFixed(2)), 'color: black;' // Z-coordinate
-      );
+      // Ensure yaw is between 0 and 360 degrees
+      if (yaw < 0) yaw += 360;
+
+      setDirection(yaw);
     };
 
     containerRef.current.addEventListener("click", (e) => {
@@ -141,13 +155,26 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
         console.log('Click position: ', [parseFloat(position.x), parseFloat(position.y), parseFloat(position.z)]);
       }
     });
-    // controls.addEventListener('change', handleControlChange);
+    controls.addEventListener('change', handleControlChange);
 
     viewerRef.current = viewer;
+    return () => {
+      controls.addEventListener('change', handleControlChange);
 
+    }
   }, []);
-
-  return {viewerRef, panoramasRef, infospotRefs, activeRoom, switchPanorama, loading, handleDotClick, onImageClick};
+  console.log(direction, 'DIRECTION')
+  return {
+    viewerRef,
+    panoramasRef,
+    infospotRefs,
+    activeRoom,
+    switchPanorama,
+    loading,
+    handleDotClick,
+    onImageClick,
+    direction
+  };
 };
 
 export default usePanoramaViewer;

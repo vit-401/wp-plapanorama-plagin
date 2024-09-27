@@ -6,6 +6,7 @@ import Popup from "./Popup/Popup";
 import {dataUnit2} from "./data/data_unit_2";
 import {dataUnit16} from "./data/data_unit_16";
 import {dataUnit23} from "./data/data_unit_23";
+import LocationIndicator from "./LocationIndicator";
 
 
 function renderReactApp() {
@@ -14,6 +15,7 @@ function renderReactApp() {
     const root = ReactDOM.createRoot(rootElement);
     root.render(
       <React.StrictMode>
+        {/*<LocationIndicator/>*/}
         <Popup {...dataUnit2} id={'unit-2'}/>
         <Popup {...dataUnit16}  id={'unit-16'}/>
         <Popup {...dataUnit23}  id={'unit-23'}/>
