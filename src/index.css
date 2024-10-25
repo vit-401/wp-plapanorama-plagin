@@ -58,6 +58,17 @@ code {
     }
 }
 
+.react-responsive-modal-root{
+    /*position: absolute;*/
+    /*z-index: 10000;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    /*left: 0;*/
+    /*background-color: rgba(0, 0, 0, 0.82);*/
+    /*height: 100%;*/
+
+}
+
 /*#panolens .custom-cursor {*/
 /*  position: absolute;*/
 /*  width: 60px; !* Diameter of the circle *!*/

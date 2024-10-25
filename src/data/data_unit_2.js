@@ -24,6 +24,7 @@ import plan2 from "../media/unit_2/basement/plan.jpg";
 export const dataUnit2 = {
   title: "Cascade",
   infospotsData: [
+
     {position: [4767.34, -1438.1, 345.59], pointTo: 0, panoramaIndex: 2, hoverText: 'ENTRY STAIRS TO THE 2ND LEVEL'},
     {position: [2422.45, -1064.18, 4237.77], pointTo: 2, panoramaIndex: 0, hoverText: 'KITCHEN LIVING DINING'},
     {position: [4214.16, -938.69, -2508.61], pointTo: 1, panoramaIndex: 0, hoverText: 'GARAGE'},

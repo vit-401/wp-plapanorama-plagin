@@ -14,17 +14,17 @@ import usePanoramaViewer from "../hooks/usePanoramaViewer";
 
 // Extend the Viewer prototype to include the getPosition method
 Viewer.prototype.getPosition = function () {
-  const intersects = this.raycaster.intersectObject(this.panorama, true);
-  if (intersects.length > 0) {
-    const point = intersects[0].point;
-    const panoramaWorldPosition = this.panorama.getWorldPosition();
-    return new THREE.Vector3(
-      -(point.x - panoramaWorldPosition.x).toFixed(2),
-      (point.y - panoramaWorldPosition.y).toFixed(2),
-      (point.z - panoramaWorldPosition.z).toFixed(2)
-    );
-  }
-  return null;
+    const intersects = this.raycaster.intersectObject(this.panorama, true);
+    if (intersects.length > 0) {
+        const point = intersects[0].point;
+        const panoramaWorldPosition = this.panorama.getWorldPosition();
+        return new THREE.Vector3(
+            -(point.x - panoramaWorldPosition.x).toFixed(2),
+            (point.y - panoramaWorldPosition.y).toFixed(2),
+            (point.z - panoramaWorldPosition.z).toFixed(2)
+        );
+    }
+    return null;
 };
 
 
@@ -71,111 +71,116 @@ Viewer.prototype.getPosition = function () {
 // };
 
 const PanoramaViewer = (props) => {
-  const [openGallery, setOpenGallery] = useState(false)
-  const containerRef = useRef(null);
+    const [openGallery, setOpenGallery] = useState(false)
+    const containerRef = useRef(null);
 
-  const [activeFloor, setActiveFloor] = useState(props.options[0].value);
-  // const [activeRoom, setActiveRoom] = useState(props.options[0].value);
-  const [hovered, setHovered] = useState(false);
-  const {
-    viewerRef,
-    panoramasRef,
-    infospotRefs,
-    activeRoom,
-    switchPanorama,
-    loading,
-    handleDotClick,
-    onImageClick,
-  } = usePanoramaViewer(containerRef, props.panoramas, props.infospotsData, setActiveFloor);
+    const [activeFloor, setActiveFloor] = useState(props.options[0].value);
+    // const [activeRoom, setActiveRoom] = useState(props.options[0].value);
+    const [hovered, setHovered] = useState(false);
+    const {
+        viewerRef,
+        panoramasRef,
+        infospotRefs,
+        activeRoom,
+        switchPanorama,
+        loading,
+        handleDotClick,
+        onImageClick,
+        Modal
+    } = usePanoramaViewer(containerRef, props.panoramas, props.infospotsData, setActiveFloor);
 
-  const handleChangeSelect = (value) => {
-    const currentFloor = props.floors.find(floor => floor.value === value)
-    switchPanorama(currentFloor.defaultPanorama)
-    setActiveFloor(value);
-  };
-  const changeRoom = (value) => {
-    handleDotClick(value)
-  };
+    const handleChangeSelect = (value) => {
+        const currentFloor = props.floors.find(floor => floor.value === value)
+        switchPanorama(currentFloor.defaultPanorama)
+        setActiveFloor(value);
+    };
+    const changeRoom = (value) => {
+        handleDotClick(value)
+    };
 
 
+    console.log(loading, 'loading')
+    return (
+        <>
+            {Modal}
 
-  console.log(loading, 'loading')
-  return (
-    <div className={styles.panoramaWrap}>
-      {loading && (<Spin indicator={<LoadingOutlined style={{fontSize: 150}} spin/>} className={styles.spin}/>)}
-      <div className={styles.descDropDown}>
-        <div className={styles.lable}>Choose your location:</div>
-        <Select
-          value={activeRoom}
-          style={{width: '100%', maxWidth: '200px'}}
-          onChange={changeRoom}
-          options={mapFloorsToSelectOptions(props.floors.find(f => activeFloor === f.value).dotPosition)}
-          placeholder={"test2"}
-        />
-      </div>
-      <div className={styles.wrapDropdown}>
-        <div className={styles.selectInfoWrap}>
-          <div className={styles.lable}>Choose your location:</div>
-          <Select
-            dropdownStyle={{width: 300}}
-            value={activeRoom}
-            style={{width: '100%', maxWidth: '137px'}}
-            onChange={changeRoom}
-            options={mapFloorsToSelectOptions(props.floors.find(f => activeFloor === f.value).dotPosition)}
-            placeholder={"test2"}
-          />
-        </div>
-        <div className={styles.selectInfoWrap}>
-          <div className={styles.lable}>Choose your floor:</div>
-          <Select
-            dropdownStyle={{width: 300}}
-            value={activeFloor}
-            style={{width: '100%', maxWidth: '137px'}}
-            onChange={handleChangeSelect}
-            options={props.options}
-            placeholder={"test21"}
-          />
-        </div>
+            <div className={styles.panoramaWrap}>
+                {loading && (
+                    <Spin indicator={<LoadingOutlined style={{fontSize: 150}} spin/>} className={styles.spin}/>)}
+                <div className={styles.descDropDown}>
+                    <div className={styles.lable}>Choose your location:</div>
+                    <Select
+                        value={activeRoom}
+                        style={{width: '100%', maxWidth: '200px'}}
+                        onChange={changeRoom}
+                        options={mapFloorsToSelectOptions(props.floors.find(f => activeFloor === f.value).dotPosition)}
+                        placeholder={"test2"}
+                    />
+                </div>
+                <div className={styles.wrapDropdown}>
+                    <div className={styles.selectInfoWrap}>
+                        <div className={styles.lable}>Choose your location:</div>
+                        <Select
+                            dropdownStyle={{width: 300}}
+                            value={activeRoom}
+                            style={{width: '100%', maxWidth: '137px'}}
+                            onChange={changeRoom}
+                            options={mapFloorsToSelectOptions(props.floors.find(f => activeFloor === f.value).dotPosition)}
+                            placeholder={"test2"}
+                        />
+                    </div>
+                    <div className={styles.selectInfoWrap}>
+                        <div className={styles.lable}>Choose your floor:</div>
+                        <Select
+                            dropdownStyle={{width: 300}}
+                            value={activeFloor}
+                            style={{width: '100%', maxWidth: '137px'}}
+                            onChange={handleChangeSelect}
+                            options={props.options}
+                            placeholder={"test21"}
+                        />
+                    </div>
 
-      </div>
-      <div className={styles.imagesWrap}>
-        <div className={styles.planContainer}>
-          <div className={styles.imgSelectWrap}>
-            <FloorSelector
-              floors={props.floors}
-              activeFloor={activeFloor}
-              activeRoom={activeRoom}
-              onImageClick={onImageClick}
-              handleDotClick={handleDotClick}
-              handleChangeSelect={handleChangeSelect}
-            />
-            <Select
-              value={activeFloor}
-              className={styles.select}
-              style={{width: '100%'}}
-              onChange={handleChangeSelect}
-              options={props.options}
-            />
-          </div>
-          {/*<HomeOutlined onClick={onOpenGallery}*/}
-          {/*              style={{*/}
-          {/*                color: hovered ? '#fff' : '#000',*/}
-          {/*                transition: 'color 0.1s ease-in-out',*/}
-          {/*              }}*/}
-          {/*              onMouseEnter={() => setHovered(true)}*/}
-          {/*              onMouseLeave={() => setHovered(false)}*/}
-          {/*              className={styles.galleryIcon}  alt=""/>*/}
-          {/*<img onClick={onOpenGallery} className={styles.galleryIcon} src={galleryIcon} alt=""/>*/}
-        </div>
-        {/*<div className={classNames(styles.info, styles.infoPlan)}>A-280 PLAN</div>*/}
+                </div>
+                <div className={styles.imagesWrap}>
+                    <div className={styles.planContainer}>
+                        <div className={styles.imgSelectWrap}>
+                            <FloorSelector
+                                floors={props.floors}
+                                activeFloor={activeFloor}
+                                activeRoom={activeRoom}
+                                onImageClick={onImageClick}
+                                handleDotClick={handleDotClick}
+                                handleChangeSelect={handleChangeSelect}
+                            />
+                            <Select
+                                value={activeFloor}
+                                className={styles.select}
+                                style={{width: '100%'}}
+                                onChange={handleChangeSelect}
+                                options={props.options}
+                            />
+                        </div>
+                        {/*<HomeOutlined onClick={onOpenGallery}*/}
+                        {/*              style={{*/}
+                        {/*                color: hovered ? '#fff' : '#000',*/}
+                        {/*                transition: 'color 0.1s ease-in-out',*/}
+                        {/*              }}*/}
+                        {/*              onMouseEnter={() => setHovered(true)}*/}
+                        {/*              onMouseLeave={() => setHovered(false)}*/}
+                        {/*              className={styles.galleryIcon}  alt=""/>*/}
+                        {/*<img onClick={onOpenGallery} className={styles.galleryIcon} src={galleryIcon} alt=""/>*/}
+                    </div>
+                    {/*<div className={classNames(styles.info, styles.infoPlan)}>A-280 PLAN</div>*/}
 
-        <div className={classNames(styles.info, styles.infoRoom)}>{props.rooms[activeRoom]}</div>
+                    <div className={classNames(styles.info, styles.infoRoom)}>{props.rooms[activeRoom]}</div>
+                    <div id="panolens" className={classNames(styles.image, 'custom-cursor')} ref={containerRef}></div>
+                </div>
 
-        <div id="panolens" className={classNames(styles.image, 'custom-cursor')} ref={containerRef}></div>
-      </div>
+            </div>
+        </>
 
-    </div>
-  );
+    );
 };
 
 export default PanoramaViewer;
