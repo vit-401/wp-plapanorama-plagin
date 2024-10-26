@@ -7,7 +7,8 @@ import createArrowUp from "../utils/createArrowUp";
 import createArrowDown from "../utils/createArrowDown";
 import createArrowRight from "../utils/createArrowRight";
 import createArrowLeft from "../utils/createArrowLeft";
-import {useModal} from "./useModal";
+import {useModal} from "./useModal/useModal";
+import createPlusInCircleIcon from "../utils/createPlusInCircleIcon";
 
 class MyInfospot extends Infospot {
     constructor(scale = 300, imageSrc, animated) {
@@ -79,6 +80,8 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
             let circleOutlinedIcon = circleOutlined
             let scale = 500
             if (data.arrowUp) circleOutlinedIcon = createArrowUp(1000)
+            if (data.isItPopup) circleOutlinedIcon = createPlusInCircleIcon(1000)
+
             if (data.arrowLeft) circleOutlinedIcon = createArrowLeft(1000)
             if (data.arrowRight) circleOutlinedIcon = createArrowRight(1000)
             if (data.arrowDown) circleOutlinedIcon = createArrowDown(1000)
@@ -92,7 +95,7 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
                     switchPanorama(data.pointTo);
                 } else {
                     console.log("open popup HELLO")
-                    openModal()
+                    openModal(data.popupData)
                 }
             });
             infospotRefs.current[index] = infospot;

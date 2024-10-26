@@ -19,11 +19,68 @@ import basement_212 from "../media/unit_2/basement/212_kitchen_living _dining (3
 
 import plan from "../media/unit_2/1_floor/plan.jpg";
 import plan2 from "../media/unit_2/basement/plan.jpg";
+import {fridge, plumbing} from "./data_options";
 
 
 export const dataUnit2 = {
   title: "Cascade",
   infospotsData: [
+    {
+      position: [-996.3, -1610.45, 4624.4],
+      panoramaIndex: 2,
+      hoverText: '',
+      isItPopup: true,
+      popupData:plumbing
+    },
+    {
+      position: [1587.79, -1164.75, 4591.64],
+      panoramaIndex: 2,
+      hoverText: '',
+      isItPopup: true,
+      popupData:fridge
+    },
+
+
+      //plita
+    {
+      position:[-2081.34, -1071.64, 4409.92],
+      panoramaIndex: 2,
+      hoverText: '',
+      isItPopup: true,
+      popupData:fridge
+    },
+      //microwave
+    {
+      position:[-2171.37, -20.02, 4496.69],
+      panoramaIndex: 2,
+      hoverText: '',
+      isItPopup: true,
+      popupData:fridge
+    },
+      //light
+    {
+      position:[-2380.69, 1912.97, 3954.61],
+      panoramaIndex: 2,
+      hoverText: '',
+      isItPopup: true,
+      popupData:fridge
+    },
+      //table
+    {
+      position:[-2869.32, -2420.32, 3292.97],
+      panoramaIndex: 2,
+      hoverText: '',
+      isItPopup: true,
+      popupData:fridge
+    },
+      //hardwood flor
+    {
+      position:[1860.09, -2895.66, 3618.32],
+      panoramaIndex: 2,
+      hoverText: '',
+      isItPopup: true,
+      popupData:fridge
+    },
 
     {position: [4767.34, -1438.1, 345.59], pointTo: 0, panoramaIndex: 2, hoverText: 'ENTRY STAIRS TO THE 2ND LEVEL'},
     {position: [2422.45, -1064.18, 4237.77], pointTo: 2, panoramaIndex: 0, hoverText: 'KITCHEN LIVING DINING'},

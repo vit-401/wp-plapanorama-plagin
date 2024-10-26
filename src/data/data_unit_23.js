@@ -20,17 +20,13 @@ import floor3_239 from "../media/unit_23/3_floor/239.jpg";
 import plan from "../media/unit_23/1_floor/Unit 23_level 1_ Top view.jpg";
 import plan2 from "../media/unit_23/2_floor/Unit 23_level 2nd_ Top view.jpg";
 import plan3 from "../media/unit_23/3_floor/Unit 23_level 3_ Top view.jpg";
+import {plumbing} from "./data_options";
 
 
 export const dataUnit23 = {
     title: "Alpine",
     infospotsData: [
-        {
-            position: [4924.96, 571.41, 589.77],
-            panoramaIndex: 3,
-            hoverText: 'just test for showing popup',
-            isItPopup: true
-        },
+
 
         {position: [655.07, -3109.98, -3849.8], pointTo: 1, panoramaIndex: 0, hoverText: 'GARAGE'},
         {position: [-742.78, -3553.01, -3436.66], pointTo: 0, panoramaIndex: 1, hoverText: 'STAIRS'},
