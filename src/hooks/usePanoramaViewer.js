@@ -73,20 +73,22 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
 
         panoramasRef.current = panoramas.map(p => p.panorama);
 
+        setTimeout(() => {
 
-        const circleOutlined = createCircleWithBorder();
-
+        // const circleOutlined = createCircleWithBorder();
         infospotsData.forEach((data, index) => {
-            let circleOutlinedIcon = circleOutlined
-            let scale = 500
+            const plus = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiM1QzgxNUMiLz4KPHJlY3QgeD0iMzAiIHk9IjgiIHdpZHRoPSI1IiBoZWlnaHQ9IjQ1IiByeD0iMi41IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIxMCIgeT0iMjgiIHdpZHRoPSI0NSIgaGVpZ2h0PSI1IiByeD0iMi41IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
+            const im = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNCIvPgo8L3N2Zz4K"
+            let circleOutlinedIcon = im
+            let scale = 300
             if (data.arrowUp) circleOutlinedIcon = createArrowUp(1000)
-            if (data.isItPopup) circleOutlinedIcon = createPlusInCircleIcon(1000)
+            if (data.isItPopup) circleOutlinedIcon = plus
 
             if (data.arrowLeft) circleOutlinedIcon = createArrowLeft(1000)
             if (data.arrowRight) circleOutlinedIcon = createArrowRight(1000)
             if (data.arrowDown) circleOutlinedIcon = createArrowDown(1000)
             if (data.arrowUp || data.arrowDown || data.arrowRight || data.arrowLeft) scale = 1000
-            const infospot = new MyInfospot(scale, circleOutlinedIcon);
+            const infospot = new Infospot(scale, circleOutlinedIcon);
             infospot.position.set(...data.position);
             infospot.addHoverText(data.hoverText);
             infospot.addEventListener("click", () => {
@@ -101,8 +103,8 @@ const usePanoramaViewer = (containerRef, panoramas, infospotsData, setActiveFloo
             infospotRefs.current[index] = infospot;
             panoramas[data.panoramaIndex].panorama.add(infospot);
         });
-
-        panoramas.forEach((panorama) => {
+    }, 1000);
+    panoramas.forEach((panorama) => {
             panorama.panorama.addEventListener("enter-fade-start", () => {
                 viewer.tweenControlCenter(new THREE.Vector3(...(panorama.initialView || [-0, 5000, 0])), 0);
             });
