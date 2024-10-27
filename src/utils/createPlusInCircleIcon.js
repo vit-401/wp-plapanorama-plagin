@@ -15,13 +15,13 @@ export default function createPlusInCircleIcon(size = 24) {
     // Draw the green circle
     ctx.beginPath();
     ctx.arc(12 * scale, 12 * scale, 10 * scale, 0, 2 * Math.PI);
-    ctx.fillStyle = 'green'; // Circle color
+    ctx.fillStyle = '#5C815C'; // Circle color
     ctx.fill();
     ctx.closePath();
 
     // Draw the white plus sign
     ctx.beginPath();
-    ctx.fillStyle = 'white'; // Plus color
+    ctx.fillStyle = '#fff'; // Plus color
 
     // Vertical line of the plus
     ctx.fillRect(11 * scale, 6 * scale, 2 * scale, 12 * scale);

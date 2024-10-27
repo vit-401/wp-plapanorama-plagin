@@ -34,20 +34,32 @@ export const useModal = () => {
         <div className={styles.modalWrap}>
 
             <div className={styles.title}>Available options</div>
-            <div className={styles.container}>
-                {modalData.map((item, index) => (
+            {modalData.map((item, index) => (
 
-                    <Card
-                        withBorder={(index % 3 !== 2 && index !== plumbing.length - 1)}
-                        index={index}
-                        key={index}
-                        title={item.title}
-                        description={item.description}
-                        image={item.image}
-                    />
-                ))}
+                <>
+                    <div className={styles.categoryWrap}>
+                        <div key={index} className={styles.category}>{item.category}</div>
+                    </div>
 
-            </div>
+                    <div className={styles.container}>
+
+                        {
+                            item.data.map((i, index) => (
+                                <Card
+                                    withBorder={(index % 3 !== 2 && index !== plumbing.length - 1)}
+                                    index={index}
+                                    key={index}
+                                    title={i.title}
+                                    description={i.description}
+                                    image={i.image}
+                                />
+                            ))
+                        }
+
+                    </div>
+                </>
+            ))}
+
         </div>
 
 

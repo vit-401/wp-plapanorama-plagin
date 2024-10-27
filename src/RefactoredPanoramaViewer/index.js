@@ -28,48 +28,6 @@ Viewer.prototype.getPosition = function () {
 };
 
 
-// const floors = [
-//   {
-//     value: 'second-floor',
-//     title: 'Second floor',
-//     img: plan,
-//     dotPosition: [
-//       {top: 43, left: 30, pointTo: 0, hoverText: 'bedroom 1'},
-//       {top: 82, left: 64, pointTo: 1, hoverText: 'hallway'},
-//       {top: 43, left: 90, pointTo: 2, hoverText: 'bedroom 2'},
-//       {top: 89, left: 110, pointTo: 3, hoverText: 'hallway 2'},
-//       {top: 82, left: 24, pointTo: 4, hoverText: 'hallway bathroom'},
-//       {top: 116, left: 110, pointTo: 5, hoverText: 'hallway bathroom'},
-//       {top: 125, left: 87, pointTo: 6, hoverText: 'laundry'},
-//       {top: 181, left: 110, pointTo: 7, hoverText: 'master bedroom view1'},
-//       {top: 187, left: 64, pointTo: 8, hoverText: 'master bedroom view2'},
-//       {top: 171, left: 45, pointTo: 9, hoverText: 'master bedroom view3'},
-//       {top: 133, left: 52, pointTo: 10, hoverText: 'master bedroom closed'},
-//       {top: 159, left: 19, pointTo: 11, hoverText: 'master bedroom bathroom'},
-//     ]
-//   },
-//   {
-//     value: 'first-floor',
-//     title: 'First floor',
-//     img: plan2,
-//     dotPosition: []
-//   },
-// ]
-// const rooms = {
-//   0: "BEDROOM 1",
-//   1: "HALLWAY",
-//   2: "BEDROOM 2",
-//   3: "HALLWAY",
-//   4: "HALLWAY BATHROOM",
-//   5: "HALLWAY",
-//   6: "LAUNDRY",
-//   7: "MASTER BEDROOM",
-//   8: "MASTER BEDROOM",
-//   9: "MASTER BEDROOM",
-//   10: "MB CLOSED",
-//   11: "MB BATHROOM",
-// };
-
 const PanoramaViewer = (props) => {
     const [openGallery, setOpenGallery] = useState(false)
     const containerRef = useRef(null);
