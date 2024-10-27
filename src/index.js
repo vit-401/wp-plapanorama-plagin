@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Popup from "./Popup/Popup";
-import {dataUnit2} from "./data/data_unit_2";
+import {dataUnit2, testUnit} from "./data/data_unit_2";
 import {dataUnit16} from "./data/data_unit_16";
 import {dataUnit23} from "./data/data_unit_23";
 import {TestComponent} from "./App";
@@ -20,6 +20,7 @@ function renderReactApp() {
         const root = ReactDOM.createRoot(rootElement);
         root.render(
             <React.StrictMode>
+                <Popup {...testUnit} id={'unit-test'}/>
                 <Popup {...dataUnit2} id={'unit-2'}/>
                 <Popup {...dataUnit16} id={'unit-16'}/>
                 <Popup {...dataUnit23} id={'unit-23'}/>

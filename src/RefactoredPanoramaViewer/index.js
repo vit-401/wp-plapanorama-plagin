@@ -114,7 +114,7 @@ const PanoramaViewer = (props) => {
                             <Select
                                 value={activeFloor}
                                 className={styles.select}
-                                style={{width: '100%'}}
+                                style={{width: '125px'}}
                                 onChange={handleChangeSelect}
                                 options={props.options}
                             />
