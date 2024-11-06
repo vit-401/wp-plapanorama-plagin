@@ -20,23 +20,493 @@ import basement_212 from "../media/unit_2/basement/212_kitchen_living _dining (3
 import plan from "../media/unit_2/1_floor/plan.jpg";
 import plan2 from "../media/unit_2/basement/plan.jpg";
 import {
-    airswitcher,
-    countertop, dishwasher,
-    fridge, garbageDisposal,
+    airswitcher, baseboards, bathroomLighting, bedroomLighting, cabinetsData, carpet, closets,
+    countertop, countertopsData, dishwasher, doorHardware, doors, dryer, faucets, flooringData,
+    fridge, garageLighting, garbageDisposal,
     handleless,
-    handlelessMaterial, hardwood, hood,
-    lights,
-    microwave,
-    oven,
-    plumbing,
-    tile
+    handlelessMaterial, hardware, hardwood, hood, hvac, kitchenPackageData, lightsData,
+    microwave, microwaveData, mirrors,
+    oven, ovenData,
+    plumbing, rails, refrigeratorsData, showers, sinks, toilets, washer,
 } from "./data_options";
-import {floor} from "three/tsl";
 
 
 export const dataUnit2 = {
     title: "Cascade",
     infospotsData: [
+        {
+            position: [-4405.43, -788.04, 2214.23],
+            panoramaIndex: 3,
+            hoverText: '',
+            isItPopup: true,
+            popupData: [
+                { category: "Closet", data: closets }
+            ]
+        },
+
+        {
+            position: [3339.21, -875.75, 3608.94],
+            panoramaIndex: 5,
+            hoverText: '',
+            isItPopup: true,
+            popupData: [
+                { category: "Closet", data: closets }
+            ]
+        },
+        {
+            position: [-2562.91, 1782.51, -3893.58],
+            panoramaIndex: 5,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"HVAC", data:hvac },
+            ]
+        },
+        {
+            position: [-3002.97, 3930.34, 693.99],
+            panoramaIndex: 5,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Lighting", data: bedroomLighting},
+            ]
+        },
+        {
+            position: [3942.61, -2947.43, -867.69],
+            panoramaIndex: 5,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Carpet", data: carpet},
+            ]
+        },
+        {
+            position: [3800.93, 1742.62, -2732.56],
+            panoramaIndex: 3,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"HVAC", data:hvac },
+            ]
+        },
+        {
+            position: [2323.28, 4396.28, 491.75],
+            panoramaIndex: 3,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Lighting", data: bedroomLighting},
+            ]
+        },
+        {
+            position: [-2654.69, -3099.34, -2879.49],
+            panoramaIndex: 3,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Carpet", data: carpet},
+            ]
+        },
+        {
+            position: [3022, -2893.13, 2733.99],
+            panoramaIndex: 7,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Toilets", data:toilets },
+            ]
+        },
+        {
+            position: [4288.66, -2367.94, -972.1],
+            panoramaIndex: 7,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Sinks", data: sinks },
+            ]
+        },
+        {
+            position: [4881.55, 860.64, -604.96],
+            panoramaIndex: 7,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Mirrors", data: mirrors},
+            ]
+        },
+        {
+            position: [4733.99, -1285.87, -933.69],
+            panoramaIndex: 7,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Faucets", data: faucets},
+            ]
+        },
+        {
+            position: [476.68, -777.69, 4913.99],
+            panoramaIndex: 7,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Showers", data: showers},
+            ]
+        },
+        {
+            position: [4098.17, 2783.91, -608.95],
+            panoramaIndex: 7,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Lighting", data: bathroomLighting},
+            ]
+        },
+        {
+            position: [1247.37, -4815.77, 458.41],
+            panoramaIndex: 7,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Hardwood", data: hardwood},
+            ]
+        },
+        {
+            position:[982.24, -1463.34, -4675.7] ,
+            panoramaIndex: 4,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Doors", data: doors},
+                {category:"Baseboards", data: baseboards},
+                {category: "Hardware", data: doorHardware},
+            ]
+        },
+
+        {
+            position: [-3360.34, -1306.7, 3450.37],
+            panoramaIndex: 13,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Closets", data: closets},
+            ]
+        },
+        {
+            position: [1392.75, -2738.74, 3935.39],
+            panoramaIndex: 14,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Toilets", data: toilets},
+            ]
+        },
+        {
+            position: [-3513.3, -2289.62, 2713.38],
+            panoramaIndex: 14,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Sinks", data: sinks},
+            ]
+        },
+        {
+            position:[-2604.35, 908.93, 4159.04] ,
+            panoramaIndex: 14,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Mirrors", data:mirrors },
+            ]
+        },
+        {
+            position:  [-4652.43, -1275.65, 1277.9],
+            panoramaIndex: 14,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Faucets", data: faucets},
+            ]
+        },
+        {
+            position:[4430.42, -706.13, 2187.55] ,
+            panoramaIndex: 14,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Showers", data:showers },
+            ]
+        },
+        {
+            position: [-1805.79, 3030.54, 3532.64],
+            panoramaIndex: 14,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Lighting", data: bathroomLighting},
+            ]
+        },
+
+        {
+            position: [-2922.53, -190.39, -4046.83],
+            panoramaIndex: 6,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Doors", data: doors},
+                {category:"Baseboards", data: baseboards},
+                {category: "Hardware", data: doorHardware},
+            ]
+        },
+        {
+            position: [639.64, -3661.32, -3335.81],
+            panoramaIndex: 6,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category: "Carpet", data: carpet},
+            ]
+        },
+        {
+            position: [-138.37, -3302.72, 3743.49],
+            panoramaIndex: 8,
+            hoverText: '',
+            isItPopup: true,
+            popupData:flooringData
+        },
+        {
+            position: [-2459.37, -1492.82, 4082.67],
+            panoramaIndex: 8,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Washer", data: washer},
+                {category:"Dryer", data: dryer},
+            ]
+        },
+        {
+            position: [-3493.34, -1678.92, -3152.69],
+            panoramaIndex: 9,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Dryer", data: dryer},
+            ]
+
+        },
+        {
+            position: [-4242.43, -2609.04, 433.32],
+            panoramaIndex: 9,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Washer", data: washer},
+            ]
+        },
+        {
+            position:  [666.96, 953.04, 4853.15],
+            panoramaIndex: 10,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"HVAC", data: hvac},
+            ]
+        },
+        {
+            position: [2395.88, 2338.31, 3703.25],
+            panoramaIndex: 10,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Lights", data: bedroomLighting},
+            ]
+        },
+        {
+            position: [2891.2, -3098.81, 2643.57],
+            panoramaIndex: 10,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Carpet", data: carpet},
+            ]
+        },
+
+        {
+            position: [-1326.5, -2126.77, -4318.68],
+            panoramaIndex: 11,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Carpet", data: carpet},
+            ]
+        },
+        {
+            position: [765.6, 3859.01, -3077.32],
+            panoramaIndex: 11,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Lights", data: bedroomLighting},
+            ]
+        },
+        {
+            position: [2306.76, 1942.5, 3986.46],
+            panoramaIndex: 11,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"HVAC", data: hvac},
+            ]
+        },
+
+        {
+            position: [-4087.36, -2498.45, 1409.89],
+            panoramaIndex: 12,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Carpet", data: carpet},
+            ]
+        },
+        {
+            position: [-4196.96, 2041.75, -1774.13],
+            panoramaIndex: 12,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"Lights", data: bedroomLighting},
+            ]
+        },
+        {
+            position: [-2806.05, 2064.65, 3574.03],
+            panoramaIndex: 12,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[
+                {category:"HVAC", data: hvac},
+            ]
+        },
+
+        {
+            position: [4328.24, -835.66, 2344.9],
+            panoramaIndex: 0,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[ {category:"Rails", data: rails}]
+        },
+        {
+            position: [870.13, -2896.02, 3978.53],
+            panoramaIndex: 0,
+            hoverText: '',
+            isItPopup: true,
+            popupData:flooringData
+        },
+        {
+            position: [4347.97, -2295.15, 897.48],
+            panoramaIndex: 0,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[{category:"Carpet", data: carpet}]
+        },
+        {
+            position: [3187.33, -1480.03, -3553.04],
+            panoramaIndex: 0,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[{category:"Doors", data: doors}]
+        },
+        {
+         position: [3847.58, 3167.57, -329.33],
+         panoramaIndex: 1,
+            hoverText: '',
+            isItPopup: true,
+            popupData:[{category:"Garage Lighting", data: garageLighting}]
+        },
+
+        {
+            position: [3757.36, 1364.52, 2986.71],
+            panoramaIndex: 2,
+            hoverText: '',
+            isItPopup: true,
+            popupData: [{category:"HVAC", data: hvac}]
+        },
+
+        {
+            position: [2695.15, -712.77, 4139.88],
+            panoramaIndex: 2,
+            hoverText: '',
+            isItPopup: true,
+            popupData: [{category:"Doors", data: doors}]
+        },
+
+
+        {
+            position: [-996.3, -1610.45, 4624.4],
+            panoramaIndex: 2,
+            hoverText: '',
+            isItPopup: true,
+            popupData: kitchenPackageData
+        },
+        {
+            position: [1587.79, -1164.75, 4591.64],
+            panoramaIndex: 2,
+            hoverText: '',
+            isItPopup: true,
+            popupData: refrigeratorsData
+        },
+
+// Oven
+        {
+            position: [-2081.34, -1071.64, 4409.92],
+            panoramaIndex: 2,
+            hoverText: '',
+            isItPopup: true,
+            popupData: ovenData
+        },
+
+// Microwave
+        {
+            position: [-2171.37, -20.02, 4496.69],
+            panoramaIndex: 2,
+            hoverText: '',
+            isItPopup: true,
+            popupData: microwaveData
+        },
+
+// Light
+        {
+            position: [-2380.69, 1912.97, 3954.61],
+            panoramaIndex: 2,
+            hoverText: '',
+            isItPopup: true,
+            popupData: lightsData
+        },
+
+// Table
+        {
+            position: [-2869.32, -2420.32, 3292.97],
+            panoramaIndex: 2,
+            hoverText: '',
+            isItPopup: true,
+            popupData: countertopsData
+        },
+
+// Flooring
+        {
+            position: [1860.09, -2895.66, 3618.32],
+            panoramaIndex: 2,
+            hoverText: '',
+            isItPopup: true,
+            popupData:flooringData
+        },
+
+// Cabinet
+        {
+            position: [-3490.75, 236.11, 3557.53],
+            panoramaIndex: 2,
+            hoverText: '',
+            isItPopup: true,
+            popupData: cabinetsData
+        },
         {
             position: [4767.34, -1438.1, 345.59],
             pointTo: 0,
@@ -101,6 +571,7 @@ export const dataUnit2 = {
         {position: [2209.86, -1120.79, 4333.48], pointTo: 12, panoramaIndex: 10, hoverText: 'MASTER BEDROOM VIEW3'},
         {position: [3007.7, -2284.48, -3272.55], pointTo: 12, panoramaIndex: 13, hoverText: 'MASTER BEDROOM VIEW3'},
     ],
+
     panoramas: [
         {panorama: new ImagePanorama(basement_210), initialView: [3717.78, -1138.01, 3143.73]},   // ENTRY STAIRS TO THE 2ND LEVEL
         {panorama: new ImagePanorama(basement_213), initialView: [2997.2, -1474.13, -3720.71]},   // GARAGE
@@ -180,24 +651,25 @@ export const testUnit = {
     title: "Cascade",
     infospotsData: [
         {
+            position: [3757.36, 1364.52, 2986.71],
+            panoramaIndex: 2,
+            hoverText: '',
+            isItPopup: true,
+            popupData: hvac
+        },
+        {
             position: [-996.3, -1610.45, 4624.4],
             panoramaIndex: 2,
             hoverText: '',
             isItPopup: true,
-            popupData: [
-                {category: "Plumbing Fixtures", data: plumbing},
-                {category: "Air Switches", data: airswitcher},
-                {category: "Garbage Disposals", data: garbageDisposal},
-            ]
+            popupData: kitchenPackageData
         },
         {
             position: [1587.79, -1164.75, 4591.64],
             panoramaIndex: 2,
             hoverText: '',
             isItPopup: true,
-            popupData: [
-                {category: "Refrigerators", data: fridge}
-            ],
+            popupData: refrigeratorsData
         },
 
 // Oven
@@ -206,10 +678,7 @@ export const testUnit = {
             panoramaIndex: 2,
             hoverText: '',
             isItPopup: true,
-            popupData: [
-                {category: "Ovens", data: oven},
-                {category: "Dishwashers", data: dishwasher},
-            ]
+            popupData: ovenData
         },
 
 // Microwave
@@ -218,10 +687,7 @@ export const testUnit = {
             panoramaIndex: 2,
             hoverText: '',
             isItPopup: true,
-            popupData: [
-                {category: "Microwaves", data: microwave},
-                {category: "Range Hoods", data: hood},
-            ]
+            popupData: microwaveData
         },
 
 // Light
@@ -230,9 +696,7 @@ export const testUnit = {
             panoramaIndex: 2,
             hoverText: '',
             isItPopup: true,
-            popupData: [
-                {category: "Lights", data: lights},
-            ]
+            popupData: lightsData
         },
 
 // Table
@@ -241,21 +705,16 @@ export const testUnit = {
             panoramaIndex: 2,
             hoverText: '',
             isItPopup: true,
-            popupData: [
-                {category: "Countertops", data: countertop},
-            ]
+            popupData: countertopsData
         },
 
-// Hardwood Floor
+// Flooring
         {
             position: [1860.09, -2895.66, 3618.32],
             panoramaIndex: 2,
             hoverText: '',
             isItPopup: true,
-            popupData: [
-                {category: "Hardwood Floorings", data: hardwood},
-                {category: "Tile Floorings", data: tile},
-            ]
+            popupData:flooringData
         },
 
 // Cabinet
@@ -264,10 +723,7 @@ export const testUnit = {
             panoramaIndex: 2,
             hoverText: '',
             isItPopup: true,
-            popupData: [
-                {category: "Cabinet Materials", data: handlelessMaterial},
-                {category: "Handleless Designs", data: handleless},
-            ]
+            popupData: cabinetsData
         },
         {
             position: [4767.34, -1438.1, 345.59],
