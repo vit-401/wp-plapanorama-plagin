@@ -5,7 +5,7 @@
   cursor: none !important;
   //width: 100% !important;
   //max-width: 1200px !important;
-  height: 500px; // Default height, adjust as needed
+  height: calc(100vh - 250px); // Default height, adjust as needed
   max-height: 70vh; // Ensures the height doesn't exceed 70% of the viewport height
   @media (max-width: 480px) {
     display: flex;
